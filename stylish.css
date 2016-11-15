@@ -1,0 +1,186 @@
+/* Comment */
+/***Navigation Bar***/
+/* "Where am I now?" style... use .active?*/
+#navlist li a#current{
+	background-color:red;
+	width: 10em;
+	padding: 14px 16px;
+}
+
+/* Unordered list, navigation list */
+ul#navlist{
+	text-align: center; /* text in center of box */
+	list-style-type: none; /* Removes bullet points */
+	padding: 0; /* Removes text padding */
+	margin: 0; /* Removes text margin */
+	float: left; /* also for excess bar */
+	width: 100%; /* for excess bar */
+	color: #fff; /* ? */
+	background-color: #369; /* Background color for entire navigation bar + excess */
+}
+
+/* Unordered list, navigation bar */
+ul#navlist li {
+	display: inline; /* Instead of top to bottom, it's positioned left to right */
+	/* But when it's removed...nothing happens. why? */
+}
+
+/* Unordered list, navigation list with link anchor tag */
+ul#navlist li a {
+	float: left; /* Take all boxes and shift them to the left */
+	width: 10em; /* Width added between boxes to distance them */
+	color: #fff; /* Removes blue hyperlink to white text */
+	background-color: #369; /* Default, non-current page color */
+	padding: 14px 16px; /* Boxes, not text, themselves with padding */
+	text-decoration: none; /* Removes underlined hyperlink */
+	border-right: 1px solid #fff; /* Tiny space on the right of each box */
+}
+
+/* Unordered list, navigation list with link anchor tag when hovered */
+ul#navlist li a:hover {
+	background-color: #036;
+	color: #fff;
+}
+
+/***Text on page***/
+ /* Homepage */
+h1 {
+	padding-top:15px;
+	color: red;
+	padding-left: .5em;
+	border-bottom: 1px solid red;
+}
+/* The Internet and World Wide Web */
+h2 {
+	text-align: center;
+	margin-top: 2em;
+	padding-top: 2em;
+}
+/* Internet (1969) */
+h3 {
+	background-color: #ddd;
+	padding: 1em;
+	border: 1px solid red;
+	margin: 0;
+}
+/* all the content..used for all but pioneers */
+div.section {
+	background-color: #ddd;
+	padding-left: 1.5em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	padding-right: 3em;
+	border: 1px solid red;
+}
+
+footer {
+	clear: both;
+	padding: 15px;
+	background: #ccc;
+}
+li.spacing {
+	margin-left: 4em;
+	margin: 20px 0;
+}
+li.spaceBelow {
+	margin-bottom: 2em;
+	list-style-type: none;
+}
+p {
+	margin-left: 4em;
+}
+
+/***Images***/
+ /* size is static, how to make it dynamic like h3? */
+div.subjectBox {
+	position: relative;
+	width: 100%; /* future refrence, use photoshop for static images */
+	height: 300px;
+	border: 1px solid red;
+	/*just padding, affects the page tho*/
+	background-color: #ddd;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+/* all the content */
+div.wordBox {
+	position: absolute;
+	left: 25%; /* push to the right of the image */
+	width: 70%; /* stay within the borders defined in subjectBox */
+	/*no height needed*/
+	margin-top: 1.5em;
+}
+.van, .doug, .ted, .steve, .tim, .marc, .rob, .lou {
+	float: left;
+	max-height: 200px; /* corresponds greatly with subjectBox's height 300px */
+	max-width: 300px;
+}
+figure {
+	position: relative;
+}
+figure img {
+	display: block;
+}
+figcaption {
+	background: rgba(0, 0, 0, 0.5);
+    color: #FFF;
+    position: absolute;
+    left: 0;
+    right: 0;
+	font-size: 12px;
+	text-align: center;
+}
+figcaption.figvan {
+	width: 278px;
+}
+figcaption.figdoug {
+	width: 148px;
+}
+figcaption.figted {
+	width: 230px;
+}
+figcaption.figsteve {
+	width: 300px;
+}
+figcaption.figtim {
+	width: 283px;
+}
+figcaption.figmarc {
+	width: 260px;
+}
+figcaption.figrob {
+	width: 200px;
+}
+figcaption.figlou {
+	width: 162px;
+}
+figcaption.cliserv {
+	width: 669px;
+	bottom: 0;
+}
+.clientserver {
+	background-color: #ddf;
+	padding: 1em;
+	/* below 3 are for centering the box */
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.box {
+	display: table-cell;
+}
+li.sideInfo {
+	font-size: 24px;
+	text-align: center;
+	list-style-type: none;
+}
+
+table {
+	padding: 3em;
+}
+td {
+	border: 1px solid black;
+	padding: 3em;
+	text-align: center;
+}
