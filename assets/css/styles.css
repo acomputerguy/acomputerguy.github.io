@@ -23,7 +23,7 @@ h1.titleHome a {
 }
 h1.title a {
 	/* unable to get it to load in the proper directory so its in same dir as css */
-	background-image: url("internetMap.png");
+	background-image: url("internetMap.PNG");
 	
 	text-decoration: none;
 	/* these two below are to create the width to fill the page */
