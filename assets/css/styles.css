@@ -1,0 +1,106 @@
+/* Comment */
+
+/* OVERALL */
+body {
+	#background-color: #e5e5e5;
+	/* pick a universal font */
+	font-family: verdana;
+}
+
+/* TITLE */
+h1.titleHome a {
+	background-image: url("internetMap.png");
+	
+	text-decoration: none;
+
+	width: 100%;
+	float: left;
+	
+	padding: 5em 0em 5em 1em;
+	color: #fff;
+	margin-left: -8px;
+	margin-top: -21px;
+}
+h1.title a {
+	/* unable to get it to load in the proper directory so its in same dir as css */
+	background-image: url("internetMap.png");
+	
+	text-decoration: none;
+	/* these two below are to create the width to fill the page */
+	width: 100%;
+	float: left;
+	
+	padding: 1em 0em 1em 1em;
+	color: #fff;
+	margin-left: -8px;
+	margin-top: -21px;
+}
+code.pageTitle {
+	font-size: 140%;
+}
+
+/* NAVIGATION BAR*/
+/* take out the "where am i?" code once in productions */
+nav ul {
+	list-style-type: none;
+	float: right;
+	width: 100%;
+	background-color: #111;
+	font-size: 110%;
+	
+	margin-top: 0px;
+	margin-right: -8px;
+}
+nav ul li {
+	display: inline;
+	background-color: #111;
+}
+nav ul li a {
+	#color: #fff;
+	text-decoration: none;
+	float: right;
+	padding: 1em 2em;
+	border-left: 1px solid #fff; /* do you want this border indentation? */
+	background-color: #111; /*change color later to light gray */
+	color: #fff;
+}
+nav ul li a:hover {
+	background-color: gray;
+}
+nav ul li a#currentPage {
+	background-color: silver;
+}
+
+/* SECTION */
+section {
+	border: 5px solid red;
+	padding: 3em;
+	clear: both;
+}
+p.subtopic {
+	text-align: center;
+	font-weight: bold;
+}
+img {
+	max-width: 75%;
+	max-height: 100%;
+}
+
+/* ASIDE..contact.html is where the issue persists lol */
+aside {
+	float: right;
+	padding: 2em 0em 2em 0em;
+	border-top: 3px solid black;
+	border-bottom: 3px solid black;
+	max-width: 30%;
+	margin-left: 2em;
+}
+
+/* FOOTER */
+footer a{
+	padding: 1em 1em 1em 0em;
+	text-decoration: none;
+	float: right;
+	
+	/* and STAY at the bottom of the page */
+}
