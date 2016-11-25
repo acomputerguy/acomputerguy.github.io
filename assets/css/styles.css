@@ -56,11 +56,10 @@ nav ul li {
 	background-color: #111;
 }
 nav ul li a {
-	#color: #fff;
 	text-decoration: none;
 	float: right;
 	padding: 1em 2em;
-	border-left: 1px solid #fff; /* do you want this border indentation? */
+	border-left: 1px solid #fff; /* unsure about border indentation */
 	background-color: #111; /*change color later to light gray */
 	color: #fff;
 }
@@ -73,7 +72,7 @@ nav ul li a#currentPage {
 
 /* SECTION */
 section {
-	border: 5px solid red;
+	border: 5px solid red; /* remove when done */
 	padding: 3em;
 	clear: both;
 }
@@ -86,7 +85,7 @@ img {
 	max-height: 100%;
 }
 
-/* ASIDE..contact.html is where the issue persists lol */
+/* ASIDE */
 aside {
 	float: right;
 	padding: 2em 0em 2em 0em;
