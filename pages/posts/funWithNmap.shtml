@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head> <!-- head or header -->
+		<meta charset="utf-8" />
+		<title>acg - Blog</title>
+		<link rel="stylesheet" type="text/css" href="../../assets/css/styles.css">
+		<link rel="icon" href="../../assets/images/favicon.png">
+	</head>
+	<body>
+		<h1 class="title"><a href="../index.shtml">acomputerguy</a></h1>
+		
+		<nav>
+			<ul>
+				<li><a href="../contact.shtml">contact</a></li>
+				<li><a href="../aboutMe.shtml">about me</a></li>
+				<li><a href="../blog.shtml">blog</a></li>
+			</ul>
+		</nav>
+
+		<h2>Nmap: Perpetual scan and shared code</h2>
+
+		<section> 
+			<aside>
+				<ul>
+					<li><a href="firstDay.shtml">Day 1 at Work: Efficiency</a></li>
+					<li class="currentPost"><a href="funWithNmap.shtml">Perpetual Scanning</a></li>
+				</ul>
+			</aside>			
+			
+			<p class="subtopic">Perpetual scan</p>
+						
+			<figure>
+				<img class="blogPic" src="../../assets/images/nmap_logo.png" alt="nmap logo.png">
+			</figure>
+			
+			<p>Not gonna lie here, I googled a few things to debug my code and figure out my approach. 
+			Only major issue<a href="http://stackoverflow.com/questions/13799789/expansion-of-variable-inside-single-quotes-in-a-command-in-bash-shell-script"><sup>1</sup></a> was understanding the syntax when I had to use double quotes to pull out the contents in a variable that was insidle single quotes from awk, which was inside back tic quotes to be run. Was a little bit of a <i>"whaaa?"</i> here. 
+			A couple other<a href="http://superuser.com/questions/146174/nmap-easily-ping-scan-all-addresses-in-my-subnet"><sup>2</sup></a> links<a href="https://www.professormesser.com/nmap/how-to-supercharge-your-nmap-scans/4/"><sup>3</sup></a> were useful. 
+			This was done in a Kali Linux v1.9 virtual box, where all boxes and network connections are full-duplex.</p>
+
+			<p>Traditionally, Nmap is used as an offensive tool but the network mapper can also be used as a defensive tool. 
+			You can constantly scan your local subnet or scan the network you're attacking. 
+			The code uses Nmap and Ndiff to constantly scan the machine it's running on and reveal if there are any recent changes made in ports. 
+			If you're being patient for a port to be active, then the results will turn up immediately! 
+			When a service is running that you didn't initiate - that's how <b>YOU KNOW</b> the attacker is in your system!</p>
+
+			<p>There are many ways to view the processes running in a system but I will be focusing on two- netstat and nmap. 
+			(There's top & ps, fuser, lsof too). 
+			This is a highly practical approach because Nmap and netstat pull up different information from the system. 
+			If you have malware in your box, then this can potentially trick netstat into not showing some open ports. 
+			Nmap is useful here because it reveals what ports are open on a network-level.</p>
+			???what does netstat files invokes? it queries the system but how?
+			what does nmap files invoke? sends UDP/TCP packets with flags but how????
+
+			<p>Time is another crucial factor to take into account. 
+			What if you're scanning a large subnet and the time the scan takes to go from the first host to the second to last host is enough time for an attacker to get into the box, use a service, then terminate the process, thereby closing the port? 
+			At that point in time Nmap won't be able to reveal any changes in the last host. 
+			There can be logs of his activity but he/she can wipe this out too. 
+			If I have 1000 machines that need to be scanned and the standard time it takes for Nmap to complete a scan from box #1 to #999 is the same or less amount of time an attacker requires to enter box #1000 and open a port, do its thing, then close the port. 
+			This way Nmap will never show the scan results because the scans are traditionally incremental.</p>
+			
+			<p>This is solved with multithreading - Nmap has a built-in feature to scan much faster as a result of multiple threads. 
+			Using the -T# (3-5) argument allows me to run scans in parallel by invoking a new thread for each scan so this issue won't occur. 
+			If this approach is used, the only time frame given for an attacker is the instance the scan starts and finishes scanning the local box, which can be ridiculously fast. 
+			???Its not multithreading its on the network level so it "simultaneously" sends packets"</p>
+
+			<p><a href="https://nmap.org/book/man-performance.html">Nmap official documentation</a> helped the most!</p>
+
+			<p>To replicate this to a real world scenario as close as possible, I had the following features implemented:</p>
+			<ul>
+				<li>Automatically obtain the IP address being used</li>
+				<li>Scan again when the scan is over</li>
+				<li>Check the differences between the old and new scan results</li>
+				<li>Timestamp the scan results</li>
+				<li>Document results to a log file when a port is opened or closed</li>
+				<li>Overwrite new results into older file</li>
+				<li>Spin up a new thread for each host</li>
+			</ul>
+			
+			<p class="subtopic">Shared code...because sharing is caring!</p>
+						
+			<figure>
+				<img class="blogPic" src = "../../assets/images/nmapbanner.png" alt="nmapbanner.png">
+			</figure>
+			
+			<p>I am a back-end guy for a blue/red/white team class. 
+			For fun, I figured I'd go the extra mile and imagine being a blue/red team member. 
+			I wrote an <a href="https://github.com/acomputerguy/Side-Projects/blob/master/Red-Blue-Team/perpetualScan.sh">active scanning script</a> in bash for the blue team to use so they'll know what's up when an attacker is temporarily using the service or red team can use it to find out at a given moment when a new port is being used. 
+			The arguments I used are a service scan, printing out to an xml file (for ndiff, far more efficient than diff in this case), and rapidly sending packets. 
+			The pros are that you'll know as soon as possible when a port is open (if you don't get your IP blocked first) and con is you're stirring up quite a packet storm. 
+			???constantly change IP address??? I would imagine a centralized server is conducting the scans to its networks. 
+			The goal was to replicate a real world scenario of a perpetual Nmap scan.</p>
+
+			<p>I handed out the script to the two teams with some advice and in return wanted to know how they modified it for the competition. 
+			The blue/red team is free to modify the code to their preferences, such as implementing a form of reactive security (i.e. close port when opened), changing parameters on the information they want (which will take extra time to scan), adjust the speed of nmap, automatically find the time duration between a port being opened and closed, and so on. 
+			Red team will need to look into spoofing the IP & MAC address with various addresses per packet.</p>
+
+			<p>What I hope red team will achieve:
+			<ul>
+				<li>(-sT) Not to use TCP connect scans - will leave audible trail in logs</li>
+				<li>(-sP) Not to do a ping sweep - way too many ICMP echo requests at once, obvious it's a new conversation each time</li>
+				<li>(-sR) Not to do an RPC scan - it will "grind" out many packets since it opens lots of application sessions via rpc</li>
+				<li>(-n) Reverse DNS is turned on by default - will add to hosts file, port 53 will snitch on you</li>
+			</ul>
+		</section>
+		
+		<footer>
+			<a href ="https://maps.google.com/?daddr=Rochester+Institute+of+Technology,+Rochester,+NY">
+				<img src="../../assets/images/stock_location.png" alt="Currently at">
+			</a>
+			<a href="mailto:webb.felipe@gmail.com">
+				<img src="../../assets/images/stock_email.png" alt="Email">
+			</a>
+			<a href="https://www.reddit.com/user/acomputerguy1/">
+				<img src="../../assets/images/stock_reddit.png" alt="Reddit">
+			</a>
+			<a href="https://www.linkedin.com/in/felipe-webb">
+				<img src="../../assets/images/stock_linkedin.png" alt="LinkedIn">
+			</a>
+			<a href="https://github.com/acomputerguy">
+				<img src="../../assets/images/stock_github.png" alt="GitHub">
+			</a>
+		</footer>
+	</body>
+	
+</html>
