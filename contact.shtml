@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>acg - Home</title>
+		<link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
+		<link rel="icon" href="../assets/images/favicon.png">
+	</head>
+	<body>
+		<h1 class="title"><a href="index.shtml">acomputerguy</a></h1>
+		
+		<nav>
+			<ul>
+				<li><a id="currentPage" href="contact.shtml">contact</a></li>
+				<li><a href="aboutMe.shtml">about me</a></li>
+				<li><a href="blog.shtml">blog</a></li>
+			</ul>
+		</nav>
+
+		<h2><code class="pageTitle">user@site:~# sendmail -t</code></h2>
+
+		<section>
+		
+			<h3>WIP</h3>
+		
+			Name:<br><input id="contact-Name" type="text" name="name" value="Name" size="75%" height="40"><p></p>
+			Email:<br><input id="contact-Email" type="text" name="email" value="test@gmail.com" size="75%"><p></p>
+			Message:<br><input id="contact-Message" type="text" name="message" value="Message" size="75%"><p></p>
+			<input type="submit" class="contactButton" name="submit" onclick="getInput()" value="Submit">
+		
+		</section>
+	
+	<footer>
+		<a href ="https://maps.google.com/?daddr=Rochester+Institute+of+Technology,+Rochester,+NY">
+			<img src="../assets/images/stock_location.png" alt="Currently at">
+		</a>
+		<a href="mailto:webb.felipe@gmail.com">
+			<img src="../assets/images/stock_email.png" alt="Email">
+		</a>
+		<a href="https://www.reddit.com/user/acomputerguy1/">
+			<img src="../assets/images/stock_reddit.png" alt="Reddit">
+		</a>
+		<a href="https://www.linkedin.com/in/felipe-webb">
+			<img src="../assets/images/stock_linkedin.png" alt="LinkedIn">
+		</a>
+		<a href="https://github.com/acomputerguy">
+			<img src="../assets/images/stock_github.png" alt="GitHub">
+		</a>
+	</footer>
+	
+	<script type="text/javascript">
+			function getInput(){
+				var name = document.getElementById("contact-Name").value;
+				var email = document.getElementById("contact-Email").value;
+				var comment = document.getElementById("contact-Message").value;
+				
+				alert(name + " " + email + " " + comment);
+			}
+	</script>
+	</body>
+</html>
