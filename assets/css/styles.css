@@ -1,8 +1,6 @@
 /* Comment */
-/* left off at http://www.w3schools.com/css/css_form.asp */
 /* OVERALL */
 body {
-	#background-color: #e5e5e5;
 	/* pick a universal font */
 	font-family: Verdana;
 }
@@ -36,7 +34,7 @@ h1.titleHome a {
 }
  
 h1.title a {
-	background-image: url("../images/internetMap.PNG");
+	background-image: url("../images/internetMap.png");
 	
 	text-decoration: none;
 	/* these two below are to create the width to fill the page */
