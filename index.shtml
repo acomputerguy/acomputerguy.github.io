@@ -1,2 +1,1 @@
-<!--#include virtual="pages/index.html" -->
-this is a test
+<!--#include virtual="pages/index.shtml" -->
