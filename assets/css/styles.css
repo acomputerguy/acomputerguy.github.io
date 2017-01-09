@@ -142,3 +142,24 @@ footer.homepage {
 	padding: 15px 25px;
 	cursor: pointer;
 }
+
+/* CALENDAR */
+.calendarIconTop {
+	background-color: #2C3E50;
+	color: white;
+	padding: 5px;
+	width: 250px;
+	text-align: center;
+}
+.calendarIconBottom {
+	width: 250.5px; /* .5 because of the solid, line wont show without solid */
+	text-align: center;
+	border: 5px;
+	border-style: solid;
+	border-color: #2C3E50;
+}
+.augmentNumber {
+	font-size: 400%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
