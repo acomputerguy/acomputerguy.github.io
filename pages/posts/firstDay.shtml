@@ -105,7 +105,7 @@
 				Having no background in JavaScript, programming a script to accomplish this task was an enjoyable experience.
 				<p>Thanks to Google Apps Script for their <a href = "https://developers.google.com/apps-script/reference/gmail/">beautiful documentation and query examples!</a></p>
 				<figure>
-					<img class="blogPic" src = "../../assets/images/googleappsscript.png" alt="email2.png">
+					<img class="blogPic" src = "../../assets/images/googleappsscript.png" alt="google apps script.png">
 				</figure>
 				<p>>Open Google Apps Script</p>
 				<p>>Copy and paste the code 

@@ -61,27 +61,27 @@
 			<p>As for my testing, I just kept starting and stopping the ssh service to test if my code works.
 			The ssh service seems to be off.</p>
 			<figure>
-				<img class="blogPic" src="../../assets/images/nmap_statusOff.png" alt="nmap background.png">
+				<img class="blogPic" src="../../assets/images/nmap_statusOff.png" alt="nmap status off.png">
 			</figure>
 			
 			<p>Time to turn the ssh service on and verify it's running.</p>
 			<figure>
-				<img class="blogPic" src="../../assets/images/nmap_statusOn.png" alt="nmap background.png">
+				<img class="blogPic" src="../../assets/images/nmap_statusOn.png" alt="nmap status on.png">
 			</figure>
 			
 			<p>The results are parsed through and the essentials are stored in a log file.</p>
 			<figure>
-				<img class="blogPic" src="../../assets/images/nmap_reportLog.png" alt="nmap background.png">
+				<img class="blogPic" src="../../assets/images/nmap_reportLog.png" alt="nmap report log.png">
 			</figure>
 			
 			<p>In the beginning I had an inefficient approach to comparing the files.
 			I constantly deleted them as I made new ones when I could've just recycled the same 2 files.</p>
 			<figure>
-				<img class="blogPic" src="../../assets/images/nmap_delete1.png" alt="nmap background.png">
+				<img class="blogPic" src="../../assets/images/nmap_delete1.png" alt="nmap delete 1">
 			</figure><p>As a result I had to constantly delete the contents of the recycle bin, but 
 			now the poor code is gone.</p>
 			<figure>
-				<img class="blogPic" src="../../assets/images/nmap_delete2.png" alt="nmap background.png">
+				<img class="blogPic" src="../../assets/images/nmap_delete2.png" alt="nmap delete 2.png">
 			</figure>
 			
 			<p>There are many ways to view the processes running in a system but I will be focusing on two- netstat and nmap. 
