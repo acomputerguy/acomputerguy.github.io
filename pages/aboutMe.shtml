@@ -43,11 +43,19 @@
 			computer-oriented material like 
 			troubleshooting/media coverage/scripts/trending 
 			concepts and similar things.</p>
-			<p>I also have the strength of 100 ethernet cables!</p>
+			<p>I have the strength of 100 ethernet cables</p>
+			<p>I've made a wreath from computer components</p>
+			<p>My weapon of choice would be the CAT-5 o' 9 tails</p>
 		</section>
 		
-			<p>Countdown until last day of classes, Dec 9th!</p>
-			<p id="countdown"></p>
+		<div class="calendarIconTop">
+			<p><strong>R.I.T. Spring Semester classes begin</strong></p>
+			<p>Janurary 23rd</p>
+		</div>
+		<div class="calendarIconBottom">
+			<p id="event_Countdown" class="augmentNumber"></p>
+			<p>days left</p>
+		</div>
 		
 		<footer>
 			<a href ="https://maps.google.com/?daddr=Rochester+Institute+of+Technology,+Rochester,+NY">
@@ -66,25 +74,50 @@
 				<img src="../assets/images/stock_github.png" alt="GitHub">
 			</a>
 		</footer>
-
 		<script type="text/javascript">
+			// http://stackoverflow.com/questions/9335140/how-to-countdown-to-a-date
 			function daysLeft() {
-				p = document.getElementById("countdown");
-									
-				var currentTime = new Date();
-				var currentDay = currentTime.getDate();
-				var futureTime = new Date("December 9, 2016 16:00:00");
-				var futureDay = futureTime.getDate();
-				var daysLeft = 0;
-				
-				if(currentDay < futureDay)
-				{ daysLeft = futureDay - currentDay; }
-				else if (currentDay > futureDay)
-				{ daysLeft = currentDay - futureDay; }
-				
-				p.innerHTML = daysLeft;
-			}
+				var end = new Date('01/23/2017 8:00:00 AM');
+
+				var _second = 1000;
+				var _minute = _second * 60;
+				var _hour = _minute * 60;
+				var _day = _hour * 24;
+				var timer;
+
+				function showRemaining() {
+					var now = new Date();
+					var distance = end - now;
+
+					var days = Math.floor(distance / _day);
+					var hours = Math.floor((distance % _day) / _hour);
+					var minutes = Math.floor((distance % _hour) / _minute);
+					var seconds = Math.floor((distance % _minute) / _second);
+
+					document.getElementById('event_Countdown').innerHTML = days;
+				}
+
+				timer = setInterval(showRemaining, 1000);
+						}
 			daysLeft();
+			
+			//function daysLeft() {
+			//	p = document.getElementById("countdown");
+									
+			//	var currentTime = new Date();
+			//	var currentDay = currentTime.getDate();
+			//	var futureTime = new Date("Janurary 23, 2017 8:00:00");
+			//	var futureDay = futureTime.getDate();
+			//	var daysLeft = 0;
+				
+			//	if(currentDay < futureDay)
+			//	{ daysLeft = futureDay - currentDay; }
+			//	else if (currentDay > futureDay)
+			//	{ daysLeft = currentDay - futureDay; }
+				
+			//	p.innerHTML = daysLeft;
+			//}
+			//daysLeft();
 		</script>
 	</body>
 </html>
