@@ -1,8 +1,6 @@
 /* Comment */
-/* left off at http://www.w3schools.com/css/css_form.asp */
 /* OVERALL */
 body {
-	#background-color: #e5e5e5;
 	/* pick a universal font */
 	font-family: Verdana;
 }
@@ -73,7 +71,7 @@ nav ul li a {
 	text-decoration: none;
 	float: right;
 	padding: 1em 2em;
-	#border-left: 1px solid #fff; /* do you want this border indentation? */
+	border-left: 1px solid #fff; /* do you want this border indentation? */
 	background-color: #111; /*change color later to light gray */
 	color: #fff;
 }
@@ -143,25 +141,4 @@ footer.homepage {
 	font-size: 16px;
 	padding: 15px 25px;
 	cursor: pointer;
-}
-
-/* CALENDAR */
-.calendarIconTop {
-	background-color: #2C3E50;
-	color: white;
-	padding: 5px;
-	width: 250px;
-	text-align: center;
-}
-.calendarIconBottom {
-	width: 250.5px; /* .5 because of the solid, line wont show without solid */
-	text-align: center;
-	border: 5px;
-	border-style: solid;
-	border-color: #2C3E50;
-}
-.augmentNumber {
-	font-size: 400%;
-	margin-top: 10px;
-	margin-bottom: 10px;
 }
