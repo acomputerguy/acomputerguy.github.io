@@ -34,24 +34,27 @@
 			</figure>
 			
 			<p>After giving some thought about Nmap, I was thinking what is a solid example of a real-word situation in which I can write a script for Nmap?
-			A perpetual scan.</p>
+			A perpetual scan. This is usually done with a core server to carry out all the scans on the network.</p>
 			
-			<p>Testing environment:
+			<p>Testing environment includes:
 				<ul>
-					<li>Kali Linux v2.0.0 virtual box</li>
+					<li>Kali Linux version 2.0.0 virtual box</li>
 					<li>Full-duplex network connections</li>
 				</ul>
 			</p>
-			<p>Not gonna lie here, I googled a few things to debug my code and figure out my approach. 
-			Only major issue<a href="http://stackoverflow.com/questions/13799789/expansion-of-variable-inside-single-quotes-in-a-command-in-bash-shell-script"><sup>1</sup></a> was understanding the syntax when I had to use double quotes to pull out the contents in a variable that was insidle single quotes from awk, which was inside back tic quotes to be run. Was a little bit of a <i>"whaaa?"</i> here. 
-			A couple other<a href="http://superuser.com/questions/146174/nmap-easily-ping-scan-all-addresses-in-my-subnet"><sup>2</sup></a> links<a href="https://www.professormesser.com/nmap/how-to-supercharge-your-nmap-scans/4/"><sup>3</sup></a> were useful in understanding my approach. 
-			</p>
 
 			<p>Traditionally, Nmap is used as an offensive tool but the network mapper can also be used as a defensive tool. 
-			You can constantly scan your local subnet or scan the network you're attacking. 
+			You can constantly scan your local subnet instead. 
 			The code uses Nmap and Ndiff to constantly scan the machine it's running on and reveal if there are any recent changes made in ports. 
 			If you're being patient for a port to be active, then the results will turn up immediately! 
-			When a service is running that you didn't initiate - that's how <b>YOU KNOW</b> the attacker is in your system!</p>
+			
+			<p>Not gonna lie here, I googled a few things to debug my code and figure out my approach. 
+			Only major issue<a href="http://stackoverflow.com/questions/13799789/expansion-of-variable-inside-single-quotes-in-a-command-in-bash-shell-script"><sup>1</sup></a> was
+			understanding the syntax when I had to use double quotes to pull out the contents in a variable that was inside single
+			quotes from awk, which was inside back tic quotes to be run. Was a little bit of a <i>"whaaa?"</i> here. 
+			A couple other<a href="http://superuser.com/questions/146174/nmap-easily-ping-scan-all-addresses-in-my-subnet"><sup>2</sup></a> links<a href="https://www.professormesser.com/nmap/how-to-supercharge-your-nmap-scans/4/"><sup>3</sup></a> were 
+			useful in understanding my approach. 
+			</p>
 
 			<p>And to start, I run it in the background since it'll go on forever.</p>
 			<figure>
@@ -59,7 +62,7 @@
 			</figure>
 
 			<p>As for my testing, I just kept starting and stopping the ssh service to test if my code works.
-			The ssh service seems to be off.</p>
+			Here you can see the ssh service seems to be off.</p>
 			<figure>
 				<img class="blogPic" src="../../assets/images/nmap_statusOff.png" alt="nmap status off.png">
 			</figure>
@@ -69,7 +72,7 @@
 				<img class="blogPic" src="../../assets/images/nmap_statusOn.png" alt="nmap status on.png">
 			</figure>
 			
-			<p>The results are parsed through and the essentials are stored in a log file.</p>
+			<p>The changes are reflected as results are parsed through to store the essentials in a log file.</p>
 			<figure>
 				<img class="blogPic" src="../../assets/images/nmap_reportLog.png" alt="nmap report log.png">
 			</figure>
@@ -89,8 +92,6 @@
 			This is a highly practical approach because Nmap and netstat pull up different information from the system. 
 			If you have malware in your box, then this can potentially trick netstat into not showing some open ports. 
 			Nmap is useful here because it reveals what ports are open on a network-level.</p>
-			???what does netstat files invokes? it queries the system but how?
-			what does nmap files invoke? sends UDP/TCP packets with flags but how????
 
 			<p>Time is another crucial factor to take into account. 
 			What if you're scanning a large subnet and the time the scan takes to go from the first host to the second to last host is enough time for an attacker to get into the box, use a service, then terminate the process, thereby closing the port? 
@@ -99,10 +100,9 @@
 			If I have 1000 machines that need to be scanned and the standard time it takes for Nmap to complete a scan from box #1 to #999 is the same or less amount of time an attacker requires to enter box #1000 and open a port, do its thing, then close the port. 
 			This way Nmap will never show the scan results because the scans are traditionally incremental.</p>
 			
-			<p>This is solved with multithreading - Nmap has a built-in feature to scan much faster as a result of multiple threads. 
-			Using the -T# (3-5) argument allows me to run scans in parallel by invoking a new thread for each scan so this issue won't occur. 
-			If this approach is used, the only time frame given for an attacker is the instance the scan starts and finishes scanning the local box, which can be ridiculously fast. 
-			???Its not multithreading its on the network level so it "simultaneously" sends packets"</p>
+			<p>This is solved with concurrent packet requests - Nmap has a built-in feature to scan much faster by running in parallel. 
+			Using the -T# (3-5) argument allows me to run scans in parallel by zipping out packets simultaneously for each scan so the time lapse issue won't occur. 
+			If this approach is used, the only time frame given for an attacker is the instance the scan starts and finishes scanning the local box, which can be ridiculously fast.</p>
 
 			<p><a href="https://nmap.org/book/man-performance.html">Nmap official documentation</a> helped the most!</p>
 
