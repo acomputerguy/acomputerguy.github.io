@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>acg - Blog</title>
+		<link rel="stylesheet" type="text/css" href="../../assets/css/styles.css">
+		<link rel="icon" href="../../assets/images/favicon.png">
+	</head>
+	<body>
+		<h1 class="title"><a href="../index.shtml">acomputerguy</a></h1>
+		
+		<nav>
+			<ul>
+				<li><a href="../contact.shtml">contact</a></li>
+				<li><a href="../aboutMe.shtml">about me</a></li>
+				<li><a href="../blog.shtml">blog</a></li>
+			</ul>
+		</nav>
+		
+		<h2>Automating Classwork</h2>
+		
+		<section>
+			<aside>
+				<ul>
+					<li><a href="firstDay.shtml">Day 1 at Work: Efficiency</a></li>
+					<li><a href="funWithNmap.shtml">Perpetual Scanning</a></li>
+					<li class="currentPost"><a href="automateClass.shtml">Automating a Competition</a></li>
+				</ul>
+			</aside>
+		
+			<p class="subtopic">Automating in-class competitions</p>
+			
+			<p>This attack/defend class is structured to be divided into 3 rotating teams: 
+			<font color="blue">blue</font> team, <font color="red">red</font> team, and <font color="e6e6e6">white</font> team.
+			White <font color="e6e6e6">deploys</font>, red <font color="red">attacks</font>, and blue <font color="blue">defends</font>
+			their respective virtual machines. 
+			There is a fourth role which is usually 1 person, which is the back-end/DevOps guy.
+			I figure I'd try something new, so I signed up for the back-end role.</p>
+			
+			<p>So my partner and I don't have to <s>show up to class anymore</s> invest more time in other projects! Do more with less, right?</p>
+			
+			<p>I wrote about a dozen scripts for this class but I'll be discussing the one I'm proudest of - the script I wrote
+			to automate a competition so my partner and I didn't have to repeat process we go through during a competition in class.</p>
+			
+			
+			<figure>
+				<img class="blogPic" src="../../assets/images/comp1_snapshotDescriptions.png" alt="comp1_snapshotDescriptions.png">
+			</figure>
+			<figure>
+				<img class="blogPic" src="../../assets/images/comp2_privileges.png" alt="comp2_privileges.png">
+			</figure>
+			<figure>
+				<img class="blogPic" src="../../assets/images/comp3_vmsInCompetition.png" alt="comp3_vmsInCompetition.png">
+			</figure>
+			<figure>
+				<img class="blogPic" src="../../assets/images/comp4_currentlyOn.png" alt="comp4_currentlyOn.png">
+			</figure>
+			<figure>
+				<img class="blogPic" src="../../assets/images/comp5_progressBar.png" alt="comp5_progressBar.png">
+			</figure>
+			<figure>
+				<img class="blogPic" src="../../assets/images/comp6_alertStudents.png" alt="comp6_alertStudents.png">
+			</figure>
+			<figure>
+				<img class="blogPic" src="../../assets/images/comp7_terminateSessions.png" alt="comp7_terminateSessions.png">
+			</figure>
+			<figure>
+				<img class="blogPic" src="../../assets/images/comp8_suspendingVMs.png" alt="comp8_suspendingVMs.png">
+			</figure>
+			
+			</section>		
+		<footer>
+			<a href ="https://maps.google.com/?daddr=Rochester+Institute+of+Technology,+Rochester,+NY">
+				<img src="../../assets/images/stock_location.png" alt="Currently at">
+			</a>
+			<a href="mailto:webb.felipe@gmail.com">
+				<img src="../../assets/images/stock_email.png" alt="Email">
+			</a>
+			<a href="https://www.reddit.com/user/acomputerguy1/">
+				<img src="../../assets/images/stock_reddit.png" alt="Reddit">
+			</a>
+			<a href="https://www.linkedin.com/in/felipe-webb">
+				<img src="../../assets/images/stock_linkedin.png" alt="LinkedIn">
+			</a>
+			<a href="https://github.com/acomputerguy">
+				<img src="../../assets/images/stock_github.png" alt="GitHub">
+			</a>
+		</footer>
+	</body>
+	
+</html>

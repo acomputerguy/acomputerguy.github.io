@@ -24,12 +24,13 @@
 				<ul>
 					<li class="currentPost"><a href="firstDay.shtml">Day 1 at Work: Efficiency</a></li>
 					<li><a href="funWithNmap.shtml">Perpetual Scanning</a></li>
+					<li><a href="automateClass.shtml">Automating a Competition</a></li>
 				</ul>
 			</aside>
 		
 			<p>On the first day of work, I like to configure my web browser and email to get 
 			more work done efficiently. Keyword bookmarks, email filtering, and web browser
-			 shortcuts will be discussed. </p>
+			keyboard shortcuts will be discussed. </p>
 			<p class="subtopic">Keyword Bookmarks in Web Browser</p>
 				<p>I usually prefer Chrome, but the guide will be on Firefox.
 				For the company intranet, I go through this process -</p>
@@ -116,7 +117,7 @@
 				<li>Being able to refresh the page via google apps script is a WIP, you will have to wait for the page to refresh itself or click on inbox</li>
 			</ul>
 			
-			<p class="subtopic">Web browser shortcuts</p>
+			<p class="subtopic">Web browser keyboard shortcuts</p>
 			<p>I like to navigate without my mouse. The more proficient I am with keyboard shortcuts,
 			the less I'll need to use the mouse</p>
 			<ul>
