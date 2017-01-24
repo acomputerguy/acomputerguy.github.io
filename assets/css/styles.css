@@ -9,7 +9,7 @@ body {
 
 /* TITLE */
 h1.titleHome a {
-	background-image: url("../images/internetMap.PNG");
+	background-image: url("../images/internetMap.png");
 	
 	text-decoration: none;
 
@@ -46,7 +46,7 @@ h1.titleHome a {
 
  
 h1.title a {
-	background-image: url("../images/internetMap.PNG");
+	background-image: url("../images/internetMap.png");
 	
 	text-decoration: none;
 	/* these two below are to create the width to fill the page */
