@@ -25,11 +25,12 @@
 					<li><a href="firstDay.shtml">Day 1 at Work: Efficiency</a></li>
 					<li><a href="funWithNmap.shtml">Perpetual Scanning</a></li>
 					<li class="currentPost"><a href="automateClass.shtml">Automating a Competition</a></li>
+					<li> <a href="webScraper.shtml">Web Scraping with Imgur</a></li>
 				</ul>
 			</aside>
 			
 			<p class="subtopic">Infrastructure in place<p>
-			<p>discuss infrastr details here</p>
+			<p>***</p>
 			
 			<p class="subtopic">Automating in-class competitions</p>
 			
@@ -52,7 +53,7 @@
 				<li>Request snapshot information</li>
 				<li>Grant access to students</li>
 				<li>Turn on virtual boxes</li>
-				<li>Wait</li>
+				<li>Wait ~2 hours</li>
 				<li>Message users before time limit</li>
 				<li>Disconnect students</li>
 				<li>Take away permissions</li>

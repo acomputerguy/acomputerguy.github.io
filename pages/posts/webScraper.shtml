@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>acg - Blog</title>
+		<link rel="stylesheet" type="text/css" href="../../assets/css/styles.css">
+		<link rel="icon" href="../../assets/images/favicon.png">
+	</head>
+	<body>
+		<h1 class="title"><a href="../index.shtml">acomputerguy</a></h1>
+		
+		<nav>
+			<ul>
+				<li><a href="../contact.shtml">contact</a></li>
+				<li><a href="../aboutMe.shtml">about me</a></li>
+				<li><a href="../blog.shtml">blog</a></li>
+			</ul>
+		</nav>
+		
+		<h2>Web Scraping</h2>
+		
+		<section>
+			<aside>
+				<ul>
+					<li><a href="firstDay.shtml">Day 1 at Work: Efficiency</a></li>
+					<li><a href="funWithNmap.shtml">Perpetual Scanning</a></li>
+					<li><a href="automateClass.shtml">Automating a Competition</a></li>
+					<li class="currentPost"><a href="webScraper.shtml">Web Scraping with Imgur</a></li>
+				</ul>
+			</aside>
+			
+			<p class="subtopic">Imgur Posts<p>
+			<p>A popular file sharing site known as Imgur is a place where people post dumps of images and short animations.
+			Sometimes these dumps consist of files people wish to store locally.
+			Users view this site from their phone, laptop, or desktop, for posts.
+			The most common collections of these medias are usually:
+			<ul>
+				<li>A pile of memes</li>
+				<li>Reaction/Story Gifs</li>
+				<li>Wallpaper/Backgrounds</li>
+			<ul>
+			</p>
+			<p>Imgur has a <a href="https://help.imgur.com/hc/en-us/articles/201738607-Image-downloads">feature</a>
+			to assist you in downloading files from a post.
+			By zipping up all the files in an email and sends it to you.
+			But there is a limitation - the "album download feature does not work for very large albums of 1,000 or more."
+			Furthermore, the feature currently doesn't work. This is where my script comes in!
+			</p>
+			
+			<p class="subtopic">Approach to scraping</p>
+			<p>In the beginning, I thought it was as simple as finding the URLs for the files 
+			listed onweb page. I would look for <code><\?a href="//i.imgur.com/ABCDEFGH.jpg" class="zoom"></code>
+			and my goal is to parse through all instances of these lines and grab the text in between the quotes,
+			then download the images. For example, if you open an image in a new tab, I thought you only
+			had to scrape for all of those files in that format.
+			Bzzzt! Try again.</p>
+
+			<p>A post with more than 10 breaks this pattern. I won't be able to easily find 
+			strings that have <code>src="//i.imgur.com/</code> for the 11th or higher media 
+			listed. Looking around the web page for a 11th (or greater) one by the name
+			of a123CDe.jpg (or other alternations) was interesting - it isn't in the HTML file of the post. 
+			In fact - when I download the webpage, the URLs for the file do not show!</p>
+			
+			<p>More interestingly, if you inspect the source code for the web page, you'll notice
+			as you scroll down there are new (about 3-7) images that show up in the <code>data-reactroot</code> div tag.
+			The value of <code>&lt;div #id=&quot;</code> constantly changes to loading the next image. 
+			This is how imgur loads their images. Why is this???-PHP???talk about the classes to sound smarter n stuff</p>
+			
+			<video width="800" height="368" autoplay loop="true">
+				<source src="../../assets/media/imagesChanging.mp4" type="video/mp4">
+			</video>
+			
+			<p>After some snooping around various pages, I discovered the answer isn't in the
+			gallery. By looking at the gallery HTML page where it says "Load X more images"
+			there is a reference to an album. The first 10 and remaining pictures are not shown in the
+			gallery - it's in the <b>album</b>.</p>
+			
+			<figure>
+				<img class="blogPic" src="../../assets/images/imgur_loadxmoreimages.png" alt="load more images">
+			</figure>
+			
+			<p>Inspecting the source code here was another story. I knew all the images I needed were in here, but where?
+			I Ctrl+F'd the page for a123CDe.jpg and nothing turned up. Then I searched for a123CDe and it shows up twice.</p>
+			
+			<figure>
+				<img class="blogPic" src="../../assets/images/imgur_Images.png" alt="treasure is found">
+			</figure>
+			
+			<p class="subtopic">Watching the code do its magic</p>	
+			<p>Show code running</p>
+			
+			<p class="subtopic">Is this Allowed?</p>
+			<p>Way before I started writing the web scraper, it was my responsibility to read 
+			into the site's terms of service and verify this is allowed on their website. Their 
+			<a href="https://imgur.com/tos">ToS</a> allows me to use a web crawler on their site. 
+			Under USE OF IMGUR CONTENT, viewers are permitted to "use UGC for personal, 
+			non-commercial purposes." As a result, I claim no rights whatsoever to all the 
+			user-generated content downloaded from the site.
+			</p>
+			
+			<figure>
+				<img class="blogPic" src="../../assets/images/imgur_ToS.png" alt="terms of service">
+			</figure>
+			
+			<p>tldr; This script is allowed as long as you claim zero rights to what you download.</p>
+
+			<p>Some sites reject my GET request from my code so you have to change the user agent. 
+			For example, wGET's user agent is literally wGET, not the whole string that comes
+			with a web browser and it's name. Imgur is nice becaue they permit the user agent for
+			<code>wGET</code> and <code>Invoke-WebRequest</code>.
+			</p>
+			
+			</section>		
+		<footer>
+			<a href ="https://maps.google.com/?daddr=Rochester+Institute+of+Technology,+Rochester,+NY">
+				<img src="../../assets/images/stock_location.png" alt="Currently at">
+			</a>
+			<a href="mailto:webb.felipe@gmail.com">
+				<img src="../../assets/images/stock_email.png" alt="Email">
+			</a>
+			<a href="https://www.reddit.com/user/acomputerguy1/">
+				<img src="../../assets/images/stock_reddit.png" alt="Reddit">
+			</a>
+			<a href="https://www.linkedin.com/in/felipe-webb">
+				<img src="../../assets/images/stock_linkedin.png" alt="LinkedIn">
+			</a>
+			<a href="https://github.com/acomputerguy">
+				<img src="../../assets/images/stock_github.png" alt="GitHub">
+			</a>
+		</footer>
+	</body>
+	
+</html>

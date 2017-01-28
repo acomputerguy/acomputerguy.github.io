@@ -25,6 +25,7 @@
 					<li class="currentPost"><a href="firstDay.shtml">Day 1 at Work: Efficiency</a></li>
 					<li><a href="funWithNmap.shtml">Perpetual Scanning</a></li>
 					<li><a href="automateClass.shtml">Automating a Competition</a></li>
+					<li> <a href="webScraper.shtml">Web Scraping with Imgur</a></li>
 				</ul>
 			</aside>
 		
