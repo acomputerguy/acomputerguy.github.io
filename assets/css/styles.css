@@ -6,7 +6,6 @@ body {
 	/* pick a universal font */
 	font-family: Verdana;
 }
-
 /* TITLE */
 h1.titleHome a {
 	background-image: url("../images/internetMap.png");
@@ -44,7 +43,7 @@ h1.titleHome a {
 	50% { opacity: 0; }
 }
 
- 
+
 h1.title a {
 	background-image: url("../images/internetMap.png");
 	
@@ -123,6 +122,9 @@ aside ul {
 	list-style-type: none; /* remove bullets */
 	text-align: left;
 	padding-right: 2em;
+}
+aside ul li {
+	padding-bottom: .5em;
 }
 aside ul li.currentPost{
 	background-color: #ccf3ff;
