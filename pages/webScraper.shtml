@@ -32,17 +32,16 @@
 			<p class="subtopic">Imgur Posts<p>
 			<p>A popular file sharing site known as Imgur is a place where people post dumps of images and short animations.
 			Sometimes these dumps consist of files people wish to store locally.
-			Users view this site from their phone, laptop, or desktop, for posts.
+			Users view this site from their phone, laptop, or desktop for posts.
 			The most common collections of these medias are usually:
 			<ul>
 				<li>A pile of memes</li>
 				<li>Reaction/Story Gifs</li>
 				<li>Wallpaper/Backgrounds</li>
-			<ul>
+			</ul>
 			</p>
 			<p>Imgur has a <a href="https://help.imgur.com/hc/en-us/articles/201738607-Image-downloads">feature</a>
-			to assist you in downloading files from a post.
-			By zipping up all the files in an email and sends it to you.
+			to assist you in downloading files from a post - by zipping up all the files in an email and sends it to you.
 			But there is a limitation - the "album download feature does not work for very large albums of 1,000 or more."
 			Furthermore, the feature currently doesn't work.
 			</p>
@@ -55,20 +54,20 @@
 			
 			<p class="subtopic">Approach to scraping</p>
 			<p>In the beginning, I thought it was as simple as finding the URLs for the files 
-			listed onweb page. I would look for <code>&lt;a href="//i.imgur.com/ABCDEFGH.jpg" class="zoom"></code>
-			and my goal is to parse through all instances of these lines and grab the text in between the quotes,
-			then download the images. For example, if you open an image in a new tab, I thought you only
-			had to scrape for all of those files in that format.
+			listed on web page. I would look for <code>&lt;a href="//i.imgur.com/ABCDEFGH.jpg" class="zoom"></code>
+			and my goal was to parse through all instances of these lines and grab the text in between the quotes.
+			Then finally download the images. For example, if you open an image in a new tab you can find the URL
+			in the web page. I thought you only	had to scrape for the URL of all those files.
 			Bzzzt! Try again.</p>
 
-			<p>A post with more than 10 breaks this pattern. I won't be able to easily find 
+			<p>A post with more than 10 files breaks this pattern. I won't be able to easily find 
 			strings that have <code>src="//i.imgur.com/</code> for the 11th or higher media 
 			listed. Looking around the web page for a 11th (or greater) one by the name
 			of a123CDe.jpg (or other alternations) was interesting - it isn't in the HTML file of the post. 
-			In fact - when I download the webpage, the URLs for the file do not show!</p>
+			In fact - when I download the webpage, the URLs for the file did not show!</p>
 			
-			<p>More interestingly, if you inspect the source code for the web page, you'll notice
-			as you scroll down there are new (about 3-7) images that show up in the <code>data-reactroot</code> div tag.
+			<p>Oddly enough, if you inspect the source code of the web page as you scroll down, then you'll notice
+			there are new (about 3-8) images that show up in the <code>data-reactroot</code> div tag.
 			The value of <code>&lt;div #id=&quot;</code> constantly changes to loading the next image. 
 			This is how imgur loads their images. Why is this???-PHP???talk about the classes to sound smarter n stuff</p>
 			
@@ -76,8 +75,8 @@
 				<source src="../../assets/media/imagesChanging.mp4" type="video/mp4">
 			</video>
 			
-			<p>After some snooping around various pages, I discovered the answer isn't in the
-			gallery. By looking at the gallery HTML page where it says "Load X more images"
+			<p>After some snooping around some pages, I discovered the answer isn't in the
+			gallery. By looking at the gallery HTML page where it says "Load X more images,"
 			there is a reference to an album. The first 10 and remaining pictures are not shown in the
 			gallery - it's in the <b>album</b>.</p>
 			
