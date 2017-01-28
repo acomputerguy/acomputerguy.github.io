@@ -32,7 +32,7 @@
 			<p class="subtopic">Imgur Posts<p>
 			<p>A popular file sharing site known as Imgur is a place where people post dumps of images and short animations.
 			Sometimes these dumps consist of files people wish to store locally.
-			Users view this site from their phone, laptop, or desktop, for posts.
+			Users view this site from their phone, laptop, or desktop for posts.
 			The most common collections of these medias are usually:
 			<ul>
 				<li>A pile of memes</li>
@@ -41,15 +41,20 @@
 			</ul>
 			</p>
 			<p>Imgur has a <a href="https://help.imgur.com/hc/en-us/articles/201738607-Image-downloads">feature</a>
-			to assist you in downloading files from a post.
-			By zipping up all the files in an email and sends it to you.
+			to assist you in downloading files from a post - by zipping up all the files in an email and sends it to you.
 			But there is a limitation - the "album download feature does not work for very large albums of 1,000 or more."
-			Furthermore, the feature currently doesn't work. This is where my script comes in!
+			Furthermore, the feature currently doesn't work.
 			</p>
+			
+			<figure>
+				<img class="blogPic" src="../../assets/images/imgur_imageDownloads.png" alt="known issues">
+			</figure>
+			
+			<p>This is where my script comes in!</p>
 			
 			<p class="subtopic">Approach to scraping</p>
 			<p>In the beginning, I thought it was as simple as finding the URLs for the files 
-			listed onweb page. I would look for <code><\?a href="//i.imgur.com/ABCDEFGH.jpg" class="zoom"></code>
+			listed on web page. I would look for <code>&lt;a href="//i.imgur.com/ABCDEFGH.jpg" class="zoom"></code>
 			and my goal is to parse through all instances of these lines and grab the text in between the quotes,
 			then download the images. For example, if you open an image in a new tab, I thought you only
 			had to scrape for all of those files in that format.
@@ -61,7 +66,7 @@
 			of a123CDe.jpg (or other alternations) was interesting - it isn't in the HTML file of the post. 
 			In fact - when I download the webpage, the URLs for the file do not show!</p>
 			
-			<p>More interestingly, if you inspect the source code for the web page, you'll notice
+			<p>More interestingly, if you inspect the source code for the web page, then you'll notice
 			as you scroll down there are new (about 3-7) images that show up in the <code>data-reactroot</code> div tag.
 			The value of <code>&lt;div #id=&quot;</code> constantly changes to loading the next image. 
 			This is how imgur loads their images. Why is this???-PHP???talk about the classes to sound smarter n stuff</p>
@@ -102,7 +107,7 @@
 				<img class="blogPic" src="../../assets/images/imgur_ToS.png" alt="terms of service">
 			</figure>
 			
-			<p>tldr; This script is allowed as long as you claim zero rights to what you download.</p>
+			<p>tldr; <b>Yes</b>, this script is allowed as long as you claim zero rights to what you download.</p>
 
 			<p>Some sites reject my GET request from my code so you have to change the user agent. 
 			For example, wGET's user agent is literally wGET, not the whole string that comes
