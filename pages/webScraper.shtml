@@ -120,8 +120,6 @@
 				<img class="blogPic" src="../../assets/images/imgur_consoleWeb.png" alt="terms of service">
 			</figure>
 			
-			<p>Show code running</p>
-			
 			<p class="subtopic">Is this Allowed?</p>
 			<p>Way before I started writing the web scraper, it was my responsibility to read 
 			into the site's terms of service and verify this is allowed on their website. Their 
