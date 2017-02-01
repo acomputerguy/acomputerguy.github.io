@@ -40,6 +40,7 @@
 				<li>Wallpaper/Backgrounds</li>
 			</ul>
 			</p>
+			
 			<p>Imgur has a <a href="https://help.imgur.com/hc/en-us/articles/201738607-Image-downloads">feature</a>
 			to assist you in downloading files from a post - by zipping up all the files in an email and sends it to you.
 			But there is a limitation - the "album download feature does not work for very large albums of 1,000 or more."
@@ -50,7 +51,9 @@
 				<img class="blogPic" src="../../assets/images/imgur_imageDownloads.png" alt="known issues">
 			</figure>
 			
-			<p>This is where my script comes in!</p>
+			<p>This is where my script comes in! <b>Note:</b> 
+			Script is <mark class="successColor">successful</mark> on a post with 12,000+ files.
+			Time taken for a post with 2,000 images: ~5 minutes</p>
 			
 			<p class="subtopic">Approach to scraping</p>
 			<p>In the beginning, I thought it was as simple as finding the URLs for the files 
@@ -69,10 +72,23 @@
 			<p>Oddly enough, if you inspect the source code of the web page as you scroll down, then you'll notice
 			there are new (about 3-8) images that show up in the <code>data-reactroot</code> div tag.
 			The value of <code>&lt;div #id=&quot;</code> constantly changes to loading the next image. 
-			This is how imgur loads their images. Why is this???-PHP???talk about the classes to sound smarter n stuff</p>
+			This is how imgur loads their images.</p>
 			
 			<video width="800" height="368" autoplay loop="true">
 				<source src="../../assets/media/imagesChanging.mp4" type="video/mp4">
+			</video>
+
+			<p>As I scroll down, newer images appear and older images disappear. This is because of
+			PHP storing images in the buffer - it can't hold them all but it can hold some temporarily.
+			Just like Google Maps, when you view another location after awhile the previous area you 
+			were looking at is no longer in the buffer. If you go to the Network tab and select "Img"
+			(using Chrome) and scroll down the web page with a filter, ".jpg" applied, you'll see 
+			images being populated as shown below. To store files in a hash to avoid duplicates while
+			imitating scrolling behavior seemed to involve too much work. There has to be a simpler 
+			way with the answers in specifically the HTML pages.</p>
+			
+			<video width="800" height="368" autoplay loop="true">
+				<source src="../../assets/media/chromeConsole_imgur.mp4" type="video/mp4">
 			</video>
 			
 			<p>After some snooping around some pages, I discovered the answer isn't in the
@@ -92,6 +108,18 @@
 			</figure>
 			
 			<p class="subtopic">Watching the code do its magic</p>	
+			<video width="800" height="368" autoplay loop="true">
+				<source src="../../assets/media/downloadBackgrounds.mp4" type="video/mp4">
+			</video>
+			
+			<p>While I was parsing through and printing results for the site, I came accross a neat message from Imgur.
+			I opened console in the web browser to see the proper format and it looks like so:
+			</p>
+
+			<figure>
+				<img class="blogPic" src="../../assets/images/imgur_consoleWeb.png" alt="terms of service">
+			</figure>
+			
 			<p>Show code running</p>
 			
 			<p class="subtopic">Is this Allowed?</p>
@@ -105,6 +133,19 @@
 			
 			<figure>
 				<img class="blogPic" src="../../assets/images/imgur_ToS.png" alt="terms of service">
+			</figure>
+			
+			<p>
+			If you want to look further web scrapers that behave follow the rules laid out in the robots.txt file.
+			At <a href="imgur.com/robots.txt">imgur.com/robots.txt</a> you can view what they do not want 
+			you to scrape for. The robots exclusion standard tells you what to not process.
+			I used /gallery/ and /a/ (albums) and they are not disallowed.
+			This file is the equivalent to a post sign saying "Please do not go to these areas" when you enter a
+			someone's territory.
+			</p>
+			
+			<figure>
+				<img class="blogPic" src="../../assets/images/imgur_robotstxt.png" alt="imgur robots txt">
 			</figure>
 			
 			<p>tldr; <b>Yes</b>, this script is allowed as long as you claim zero rights to what you download.</p>
