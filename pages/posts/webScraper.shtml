@@ -51,7 +51,9 @@
 				<img class="blogPic" src="../../assets/images/imgur_imageDownloads.png" alt="known issues">
 			</figure>
 			
-			<p>This is where my script comes in! Note: Script is successful on a post with 2000+ files Time taken: 5 minutes</p>
+			<p>This is where my script comes in! <b>Note:</b> 
+			Script is <mark class="successColor">successful</mark> on a post with 12,000+ files.
+			Time taken for a post with 2,000 images: ~5 minutes</p>
 			
 			<p class="subtopic">Approach to scraping</p>
 			<p>In the beginning, I thought it was as simple as finding the URLs for the files 
@@ -106,6 +108,9 @@
 			</figure>
 			
 			<p class="subtopic">Watching the code do its magic</p>	
+			<video width="800" height="368" autoplay loop="true">
+				<source src="../../assets/media/downloadBackgrounds.mp4" type="video/mp4">
+			</video>
 			
 			<p>While I was parsing through and printing results for the site, I came accross a neat message from Imgur.
 			I opened console in the web browser to see the proper format and it looks like so:
@@ -114,8 +119,6 @@
 			<figure>
 				<img class="blogPic" src="../../assets/images/imgur_consoleWeb.png" alt="terms of service">
 			</figure>
-			
-			<p>Show code running</p>
 			
 			<p class="subtopic">Is this Allowed?</p>
 			<p>Way before I started writing the web scraper, it was my responsibility to read 
@@ -133,8 +136,9 @@
 			<p>
 			If you want to look further web scrapers that behave follow the rules laid out in the robots.txt file.
 			At <a href="imgur.com/robots.txt">imgur.com/robots.txt</a> you can view what they do not want 
-			you to scrape for. The robots exclusion standard tells you what to not process. This file
-			is the equivalent to a post sign saying "Please do not go to these areas" when you enter a
+			you to scrape for. The robots exclusion standard tells you what to not process.
+			I used /gallery/ and /a/ (albums) and they are not disallowed.
+			This file is the equivalent to a post sign saying "Please do not go to these areas" when you enter a
 			someone's territory.
 			</p>
 			
