@@ -11,29 +11,44 @@
 		
 		<nav>
 			<ul>
-				<li><a href="../contact.shtml">contact</a></li>
-				<li><a href="../aboutMe.shtml">about me</a></li>
-				<li><a href="../blog.shtml">blog</a></li>
+				<li><a href="../contact.shtml"><div class="expandBottom">contact</div></a></li>
+				<li><a href="../aboutMe.shtml"><div class="expandBottom">about me</div></a></li>
+				<li><a href="../blog.shtml"><div class="expandBottom">blog</div></a></li>
 			</ul>
 		</nav>
 		
-		<h2>Day 1 at Work: Efficiency</h2>
+		<div class="titleBox">
+			<h2>Day 1 at Work</h2>
+			<p class="postDate">Summer 2016</p>
+			<ul class="blogTopics">
+				<li>Web Browsers</li>
+				<li>Firefox</li>
+				<li>Chrome</li>
+				<li>Keyword Bookmarks</li>
+				<li>Email filtering</li>
+				<li>Keyboard Shortcuts</li>
+				<li>Google Apps Script</li>
+			</ul>
+		</div>
 		
-		<section>
-			<aside>
-				<ul>
-					<li class="currentPost"><a href="firstDay.shtml">Day 1 at Work: Efficiency</a></li>
-					<li><a href="funWithNmap.shtml">Perpetual Scanning</a></li>
-					<li><a href="automateClass.shtml">Automating a Competition</a></li>
-					<li> <a href="webScraper.shtml">Web Scraping with Imgur</a></li>
-				</ul>
-			</aside>
+		<aside>
+			<ul class="kappa2">
+				<li class="currentPost"><a href="firstDay.shtml">Day 1 at Work: Efficiency</a></li>
+				<li><a href="funWithNmap.shtml">Perpetual Scanning</a></li>
+				<li><a href="automateClass.shtml">Automating a Competition</a></li>
+				<li> <a href="webScraper.shtml">Web Scraping with Imgur</a></li>
+			</ul>
+		</aside>
 		
+		<section class="textAllCenter">
 			<p>On the first day of work, I like to configure my web browser and email to get 
 			more work done efficiently. Keyword bookmarks, email filtering, and web browser
 			keyboard shortcuts will be discussed. </p>
+			
 			<p class="subtopic">Keyword Bookmarks in Web Browser</p>
-				<p>I usually prefer Chrome, but the guide will be on Firefox.
+			<hr class="subtopicDecor">
+			
+			<p>I usually prefer Chrome, but the guide will be on Firefox.
 				For the company intranet, I go through this process -</p>
 			<p>Example: wikipedia</p>
 			<p>>Right-click on the search bar in Wikipedia</p>
@@ -57,7 +72,7 @@
 				<img class="blogPic" src = "../../assets/images/pic4_wiki_missing.png" alt="pic4_wiki_missing.png">
 			</figure>
 			<p>>Copy the URL</p>
-			<p>>Click on <i>Show your bookmarks</i> icon in the top right <img class="blogPic" src = "../assets/images/pic5_manual.png" alt="pic5_manual.png"></p>
+			<p>>Click on <i>Show your bookmarks</i> icon in the top right <img class="blogPic" src = "../../assets/images/pic5_manual.png" alt="pic5_manual.png"></p>
 			<p>>Click on <i>Show all bookmarks</i></p>
 			<figure>
 				<img class="blogPic" src = "../../assets/images/pic6_manual.png" alt="pic6_manual.png">
@@ -76,6 +91,8 @@
 				This is another step closer to being the computer guy who only uses the keyboard to navigate through a computer!</p>
 
 				<p class="subtopic">Email filtering</p>
+				<hr class="subtopicDecor">
+				
 				<p>I've noticed either Microsoft Outlook or Gmail is preferred, but I'll be talking about gmail here because I wrote a script to assist with filters.
 				Usually once you start the job, you're bombarded with emails so during first week's downtime, I like to filter certain categories into certain folders.
 				For filtering emails such as various project topics or miscellaneous (news, events), I go through this process.</p>
@@ -119,17 +136,51 @@
 			</ul>
 			
 			<p class="subtopic">Web browser keyboard shortcuts</p>
+			<hr class="subtopicDecor">
+			
 			<p>I like to navigate without my mouse. The more proficient I am with keyboard shortcuts,
-			the less I'll need to use the mouse</p>
-			<ul>
-				<li>Ctrl + L</li>
-				<li>Ctrl + Tab</li>
-				<li>Ctrl + #</li>
-				<li>Alt + Tab</li>
-				<li>Alt + Left or Right Arrow</li>
-				<li>Windows Key + Keyword</li>
-			</ul>
-			</section>		
+			the less I'll need to use the mouse. The most frequently shortcuts I use daily in my Windows 7 computer are:</p>
+				<tr>
+					<td><div class="keyboardButton">Ctrl</div> + <div class="keyboardButton">L</div></td>
+					<td>Highlighting URL</td><br><br><br>
+				</tr>
+				<tr>
+					<td><div class="keyboardButton">Ctrl</div> + <div class="keyboardButton">Tab</div></td>
+					<td>Moving to the next tab</td><br><br><br>
+				</tr>
+				<tr>
+					<td><div class="keyboardButton">Ctrl</div> + <div class="keyboardButton">#</div></td>
+					<td>Moving to tab #</td><br><br><br>
+				</tr>
+				<tr>
+					<td><div class="keyboardButton">Ctrl</div> + <div class="keyboardButton">W</div></td>
+					<td>Closing current tab</td><br><br><br>
+				</tr>
+				<tr>
+					<td><div class="keyboardButton">Alt</div> + <div class="keyboardButton">Tab</div></td>
+					<td>Alternating between apps</td><br><br><br>
+				</tr>
+				<tr>
+					<td><div class="keyboardButton">Alt</div> + <div class="keyboardButton">&larr;</div></td>
+					<td>Going back to a previous page</td><br><br><br>
+				</tr>
+				<tr>
+					<td><div class="keyboardButton">Alt</div> + <div class="keyboardButton">&rarr;</div></td>
+					<td>Going forward to a previous page</td><br><br><br>
+				</tr>
+				<tr>
+					<td><div class="keyboardButton"><img src="https://kbdevstorage1.blob.core.windows.net/asset-blobs/11847_en-us_4"></div> + <div class="keyboardButton">Keyword</div></td>
+					<td>Finding a file locally</td><br><br><br>
+				</tr>
+				<tr>
+					<td><div class="keyboardButton"><img src="https://kbdevstorage1.blob.core.windows.net/asset-blobs/11847_en-us_4"></div> + <div class="keyboardButton">&larr;</div> or <div class="keyboardButton">&rarr;</div></td>
+					<td>Minimize app to fit screen</td><br><br><br>
+				</tr>
+				<tr>
+					<td><div class="keyboardButton"><img src="https://kbdevstorage1.blob.core.windows.net/asset-blobs/11847_en-us_4"></div> + <div class="keyboardButton">&uarr;</div> or <div class="keyboardButton">&darr;</div></td>
+					<td>Maximize/minimize an app on a screen</td><br><br><br>
+				</tr>
+		
 		<footer>
 			<a href ="https://maps.google.com/?daddr=Rochester+Institute+of+Technology,+Rochester,+NY">
 				<img src="../../assets/images/stock_location.png" alt="Currently at">
@@ -148,5 +199,4 @@
 			</a>
 		</footer>
 	</body>
-	
 </html>

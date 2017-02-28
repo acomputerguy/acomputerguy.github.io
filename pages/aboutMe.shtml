@@ -8,31 +8,20 @@
 	</head>
 	<body>
 		<h1 class="title"><a href="index.shtml">acomputerguy</a></h1>
-		
 		<nav>
 			<ul>
-				<li><a href="contact.shtml">contact</a></li>
-				<li><a id="currentPage" href="aboutMe.shtml">about me</a></li>
-				<li><a href="blog.shtml">blog</a></li>
+				<li><a href="contact.shtml"><div class="expandBottom">contact</div></a></li>
+				<li><a id="currentPage" href="aboutMe.shtml"><div class="expandBottom">about me</div></a></li>
+				<li><a href="blog.shtml"><div class="expandBottom">blog</div></a></li>
 			</ul>
 		</nav>
 		
 		<h2><code class="pageTitle">user@site:~# whoami</code></h2>
 		
-		<section>
-			
-		<aside>
-			<ul>
-				<li><a href="posts/firstDay.shtml">Day 1 at Work: Efficiency</a></li>
-				<li><a href="posts/funWithNmap.shtml">Perpetual Scanning</a></li>
-				<li><a href="posts/automateClass.shtml">Automating a Competition</a></li>
-				<li> <a href="posts/webScraper.shtml">Web Scraping with Imgur</a></li>
-			</ul>
-		</aside>
-			
+		<section class="textAllCenter">			
 			<p class="subtopic">I'm the computer man!</p>
 			
-			<video width="320" height="240"  poster="../assets/images/computerman_VideoPoster.png" controls>
+			<video class="computerMan" poster="../assets/images/computerman_VideoPoster.png" controls>
 				<source src="../assets/media/IM_THE_COMPUTER_MAN!!!!!.mp4" type="video/mp4">
 			</video>
 			
@@ -46,14 +35,15 @@
 			troubleshooting/media coverage/scripts/trending 
 			concepts and similar things.</p>
 			<p>I have the strength of 100 ethernet cables</p>
-			<p>The christmas wreath in my room is made from computer parts</p>
-			<p>My weapon of choice would be the CAT-5 o' 9 tails</p>
+			<p>The christmas wreath is made from computer parts</p>
+			<p>My weapon of choice is the CAT-5 o' 9 tails</p>
 			<p>To get people hyped up, I like to ask: "ARE YOU A 1 OR A 0?!"</p>
+			<p>My strongest wizard powers include scripting and working with services</p>
 		</section>
 		
 		<div class="calendarIconTop">
-			<p><strong>R.I.T. Spring Semester classes begin</strong></p>
-			<p>Janurary 23rd</p>
+			<p><strong>R.I.T. Spring break begins</strong></p>
+			<p>March 13th</p>
 		</div>
 		<div class="calendarIconBottom">
 			<p id="event_Countdown" class="augmentNumber"></p>

@@ -11,32 +11,71 @@
 		
 		<nav>
 			<ul>
-				<li><a href="../contact.shtml">contact</a></li>
-				<li><a href="../aboutMe.shtml">about me</a></li>
-				<li><a href="../blog.shtml">blog</a></li>
+				<li><a href="../contact.shtml"><div class="expandBottom">contact</div></a></li>
+				<li><a href="../aboutMe.shtml"><div class="expandBottom">about me</div></a></li>
+				<li><a href="../blog.shtml"><div class="expandBottom">blog</div></a></li>
 			</ul>
 		</nav>
 		
+		<div class="titleBox">
 		<h2>Automating Classwork</h2>
+		<p class="postDate">Fall 2016</p>
+		<ul class="blogTopics">
+			<li>PowerCLI</li>
+			<li>Security Competition</li>
+			<li>Virtualization</li>
+			<li>VMware</li>
+			<li>vCenter</li>
+			<li>ESXi</li>
+			<li>iSCSI</li>
+			<li>Back-End</li>
+		</ul>
+		</div>
 		
-		<section>
-			<aside>
-				<ul>
-					<li><a href="firstDay.shtml">Day 1 at Work: Efficiency</a></li>
-					<li><a href="funWithNmap.shtml">Perpetual Scanning</a></li>
-					<li class="currentPost"><a href="automateClass.shtml">Automating a Competition</a></li>
-					<li> <a href="webScraper.shtml">Web Scraping with Imgur</a></li>
-				</ul>
-			</aside>
-			
+		<aside>
+			<ul>
+				<li><a href="firstDay.shtml">Day 1 at Work: Efficiency</a></li>
+				<li><a href="funWithNmap.shtml">Perpetual Scanning</a></li>
+				<li class="currentPost"><a href="automateClass.shtml">Automating a Competition</a></li>
+				<li> <a href="webScraper.shtml">Web Scraping with Imgur</a></li>
+			</ul>
+		</aside>
+		
+		<section class="textAllCenter">			
 			<p class="subtopic">Infrastructure in place<p>
-			<p>***</p>
+			<hr class="subtopicDecor">
+			<p>The <b>physical topology</b> below has 36 computers (for the students) and every bench
+			of 2 computers with have its own VLAN when connected to the core switch.
+			There is quite a distance between the computers and the switch so there
+			are wires running across the room with patch panels in between.</p>
+			<figure>
+				<img class="blogPic" src="../../assets/images/visio_cdtphysicaltop.png" alt="visio_cdtphysicaltop.png">
+			</figure>
+			<p>The <b>logical topology</b> below shows the servers supporting it.
+			<ul>
+				<li>Windows 2012 Server - NAS as a iSCSI target so if the virtual
+				infrastructure is down, storage server still works so virtual
+				machines are accessible</li>
+				<li>vCenter Server - GUI for all the VMs on the NAS, be it web
+				browser or desktop application. Runs on Linux</li>
+				<li>ESXi - hosts all the virtual machines for the competition</li>
+			</ul>
+			</p>
+			<p>One major concern I had with the topology laid out was the lack
+			of 10 gigabit ethernet connection to the ESXi server hosting the VMs
+			from other computers. This made processing the machines very slow
+			during crunch time and required students to show up early and wait
+			for the processing to finish.</p>
+			<figure>
+				<img class="blogPic" src="../../assets/images/visio_cdtlogicaltop.png" alt="visio_cdtlogicaltop.png">
+			</figure>
 			
 			<p class="subtopic">Automating in-class competitions</p>
+			<hr class="subtopicDecor">
 			
 			<p>This attack/defend class is structured to be divided into 3 rotating teams: 
-			<font color="blue">blue</font> team, <font color="red">red</font> team, and <font color="e6e6e6">white</font> team.
-			White <font color="e6e6e6">deploys</font>, red <font color="red">attacks</font>, and blue <font color="blue">defends</font>
+			<font color="blue">blue</font> team, <font color="red">red</font> team, and <font color="white">white</font> team.
+			White <font color="white">deploys</font>, red <font color="red">attacks</font>, and blue <font color="blue">defends</font>
 			their respective virtual machines. 
 			There is a fourth role which is usually 1 person, which is the back-end/DevOps guy. With many iterations of this class,
 			this is the first time someone wrote the code because normally they're too swamped with other aspects of their role.
@@ -64,6 +103,8 @@
 			<p>I'll be discussing the process in greater detail below</p>
 			
 			<p class="subtopic">Snapshot Prompts & Access Granted</p>
+			<hr class="subtopicDecor">
+			
 			<p>Prompt user for snapshot names and descriptions. This is so when the script runs in the background, I can leave when
 			the competition is over and have the process handle the rest. Beats having to wait 30 minutes to 1 hour after class
 			to type some more commands!</p>
@@ -83,6 +124,8 @@
 			</figure>
 			
 			<p class="subtopic">Starting Virtual Boxes Approach</p>
+			<hr class="subtopicDecor">
+			
 			<p>Turn on blue and red team virtual machines that aren't already on consectutuvely.</p>
 			<p>Sometimes people will be impatient and start the boxes anyways, so I have to take that into account in my code.
 			Privilege was intended to be granted prior to students logging on.</p>
@@ -98,6 +141,8 @@
 			</figure>
 			
 			<p class="subtopic">Powershell Progress Bar</p>
+			<hr class="subtopicDecor">
+			
 			<p>User-defined input will indicate waiting time until the next command in a progress bar.
 			Instead of pausing the code until the end of the competition, why not make a progress bar to show 
 			how much time has elapsed? Sometimes the competition would start late with white team delays or the lab's
@@ -110,6 +155,8 @@
 			</figure>
 			
 			<p class="subtopic">Broadcast Message</p>
+			<hr class="subtopicDecor">
+			
 			<p>White team always had to yell, "TEN MINUTES LEFT!" then 5 minutes later, "FIVE MINUTES LEFT!" towards the end of the class.
 			I always wanted to figure out a way to get the message across by saving a few strains on their vocal chords.
 			When I found out about this Broadcast Message of the Day [MoTD] feature, I was ecstatic. I had to be careful to not abuse this,
@@ -132,6 +179,8 @@
 			</figure>
 			
 			<p class="subtopic">Killing Sessions & Suspending VMs</p>
+			<hr class="subtopicDecor">
+			
 			<p>Terminate session keys of all students, thereby kicking them off the virtual environment.
 			My professor wanted to know if it could be done. I wanted to know if it could be done.
 			Can I forcibly remove the student's connection to the server? Yes. And you can pull up other pieces of information with
@@ -150,7 +199,6 @@
 			<figure>
 				<img class="blogPic" src="../../assets/images/comp8_suspendingVMs.png" alt="comp8_suspendingVMs.png">
 			</figure>
-			
 			</section>		
 		<footer>
 			<a href ="https://maps.google.com/?daddr=Rochester+Institute+of+Technology,+Rochester,+NY">

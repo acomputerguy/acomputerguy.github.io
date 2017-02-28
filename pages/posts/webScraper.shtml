@@ -11,25 +11,38 @@
 		
 		<nav>
 			<ul>
-				<li><a href="../contact.shtml">contact</a></li>
-				<li><a href="../aboutMe.shtml">about me</a></li>
-				<li><a href="../blog.shtml">blog</a></li>
+				<li><a href="../contact.shtml"><div class="expandBottom">contact</div></a></li>
+				<li><a href="../aboutMe.shtml"><div class="expandBottom">about me</div></a></li>
+				<li><a href="../blog.shtml"><div class="expandBottom">blog</div></a></li>
 			</ul>
 		</nav>
 		
+		<div class="titleBox">
 		<h2>Web Scraping</h2>
+		<p class="postDate">Winter 2017</p>
+		<ul class="blogTopics">
+			<li>Powershell</li>
+			<li>Invoke-WebRequest</li>
+			<li>Bash</li>
+			<li>Wget</li>
+			<li>Web Scraping</li>
+			<li>HTML</li>
+		</ul>
+		</div>
 		
-		<section>
-			<aside>
-				<ul>
-					<li><a href="firstDay.shtml">Day 1 at Work: Efficiency</a></li>
-					<li><a href="funWithNmap.shtml">Perpetual Scanning</a></li>
-					<li><a href="automateClass.shtml">Automating a Competition</a></li>
-					<li class="currentPost"><a href="webScraper.shtml">Web Scraping with Imgur</a></li>
-				</ul>
-			</aside>
-			
+		<aside>
+			<ul>
+				<li><a href="firstDay.shtml">Day 1 at Work: Efficiency</a></li>
+				<li><a href="funWithNmap.shtml">Perpetual Scanning</a></li>
+				<li><a href="automateClass.shtml">Automating a Competition</a></li>
+				<li class="currentPost"><a href="webScraper.shtml">Web Scraping with Imgur</a></li>
+			</ul>
+		</aside>
+		
+		<section class="textAllCenter">	
 			<p class="subtopic">Imgur Posts<p>
+			<hr class="subtopicDecor">
+			
 			<p>A popular file sharing site known as Imgur is a place where people post dumps of images and short animations.
 			Sometimes these dumps consist of files people wish to store locally.
 			Users view this site from their phone, laptop, or desktop for posts.
@@ -52,10 +65,12 @@
 			</figure>
 			
 			<p>This is where my script comes in! <b>Note:</b> 
-			Script is <mark class="successColor">successful</mark> on a post with 12,000+ files.
+			Script is <font color="green">successful</font> on a post with 12,000+ files.
 			Time taken for a post with 2,000 images: ~5 minutes</p>
 			
 			<p class="subtopic">Approach to scraping</p>
+			<hr class="subtopicDecor">
+			
 			<p>In the beginning, I thought it was as simple as finding the URLs for the files 
 			listed on web page. I would look for <code>&lt;a href="//i.imgur.com/ABCDEFGH.jpg" class="zoom"></code>
 			and my goal was to parse through all instances of these lines and grab the text in between the quotes.
@@ -107,7 +122,25 @@
 				<img class="blogPic" src="../../assets/images/imgur_Images.png" alt="treasure is found">
 			</figure>
 			
-			<p class="subtopic">Watching the code do its magic</p>	
+			<p>If I were to snip out a piece of the web page and format the code properly,
+			it would like so:</p>
+			<pre class="snippetCode">{
+	"hash":"OjkqhyI",
+	"title":"",
+	"description":null,
+	"width":1920,
+	"height":1080,
+	"size":527087,
+	"ext":".jpg",
+	"animated":false,
+	"prefer_video":false,
+	"looping":false,
+	"datetime":"2014-03-08 22:22:06"
+},</pre>
+						
+			<p class="subtopic">Watching the code do its magic</p>
+			<hr class="subtopicDecor">
+			
 			<video width="800" height="368" autoplay loop="true">
 				<source src="../../assets/media/downloadBackgrounds.mp4" type="video/mp4">
 			</video>
@@ -121,6 +154,8 @@
 			</figure>
 			
 			<p class="subtopic">Is this Allowed?</p>
+			<hr class="subtopicDecor">
+			
 			<p>Way before I started writing the web scraper, it was my responsibility to read 
 			into the site's terms of service and verify this is allowed on their website. Their 
 			<a href="https://imgur.com/tos">ToS</a> allows me to use a web crawler on their site. 

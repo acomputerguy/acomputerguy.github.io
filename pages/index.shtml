@@ -7,13 +7,17 @@
 		<link rel="icon" href="../assets/images/favicon.png">
 	</head>
 	<body>
-		<h1 class="titleHome"><a href="index.shtml"><div class="animation">acomputerguy<div class="cursorBlink">|</div></div></a></h1>
+		<h1 class="titleHome">
+			<a href="index.shtml">
+				<div class="animation"><code>acomputerguy<div class="cursorBlink">|</div></code></div>
+			</a>
+		</h1>
 		
 		<nav>
 			<ul>
-				<li><a href="contact.shtml">contact</a></li>
-				<li><a href="aboutMe.shtml">about me</a></li>
-				<li><a href="blog.shtml">blog</a></li>
+				<li><a href="contact.shtml"><div class="expandBottom">contact</div></a></li>
+				<li><a href="aboutMe.shtml"><div class="expandBottom">about me</div></a></li>
+				<li><a href="blog.shtml"><div class="expandBottom">blog</div></a></li>
 			</ul>
 		</nav>
 		

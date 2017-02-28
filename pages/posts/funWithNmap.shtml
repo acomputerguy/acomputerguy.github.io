@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head> <!-- head or header -->
+	<head>
 		<meta charset="utf-8" />
 		<title>acg - Blog</title>
 		<link rel="stylesheet" type="text/css" href="../../assets/css/styles.css">
@@ -11,24 +11,35 @@
 		
 		<nav>
 			<ul>
-				<li><a href="../contact.shtml">contact</a></li>
-				<li><a href="../aboutMe.shtml">about me</a></li>
-				<li><a href="../blog.shtml">blog</a></li>
+				<li><a href="../contact.shtml"><div class="expandBottom">contact</div></a></li>
+				<li><a href="../aboutMe.shtml"><div class="expandBottom">about me</div></a></li>
+				<li><a href="../blog.shtml"><div class="expandBottom">blog</div></a></li>
 			</ul>
 		</nav>
-
+		
+		<div class="titleBox">
 		<h2>Nmap: Perpetual scan and shared code</h2>
-
-		<section> 
-			<aside>
-				<ul>
-					<li><a href="firstDay.shtml">Day 1 at Work: Efficiency</a></li>
-					<li class="currentPost"><a href="funWithNmap.shtml">Perpetual Scanning</a></li>
-					<li><a href="automateClass.shtml">Automating a Competition</a></li>
-					<li> <a href="webScraper.shtml">Web Scraping with Imgur</a></li>
-				</ul>
-			</aside>			
-						
+		<p class="postDate">Fall 2016</p>
+		<ul class="blogTopics">
+			<li>Scanning</li>
+			<li>Nmap</li>
+			<li>Bash</li>
+			<li>Linux</li>
+			<li>Red Team</li>
+			<li>Blue Team</li>
+		</ul>
+		</div>
+		
+		<aside>
+			<ul>
+				<li><a href="firstDay.shtml">Day 1 at Work: Efficiency</a></li>
+				<li class="currentPost"><a href="funWithNmap.shtml">Perpetual Scanning</a></li>
+				<li><a href="automateClass.shtml">Automating a Competition</a></li>
+				<li> <a href="webScraper.shtml">Web Scraping with Imgur</a></li>
+			</ul>
+		</aside>	
+		
+		<section class="textAllCenter">						
 			<figure>
 				<img class="blogPic" src="../../assets/images/nmap_logo.png" alt="nmap logo.png">
 			</figure>
@@ -50,6 +61,7 @@
 			If you're being patient for a port to be active, then the results will turn up immediately! 
 
 			<p class="subtopic">Shared code...because sharing is caring!</p>
+			<hr class="subtopicDecor">
 						
 			<figure>
 				<img class="blogPic" src = "../../assets/images/nmapbanner.png" alt="nmapbanner.png">
@@ -76,6 +88,7 @@
 			</ul>
 			
 			<p class="subtopic">Perpetual scan</p>
+			<hr class="subtopicDecor">
 			
 			</p><p>Not gonna lie here, I googled a few things to debug my code and figure out my approach. 
 			Only major issue<a href="http://stackoverflow.com/questions/13799789/expansion-of-variable-inside-single-quotes-in-a-command-in-bash-shell-script"><sup>1</sup></a> was
