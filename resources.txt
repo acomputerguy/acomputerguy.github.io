@@ -1,0 +1,13 @@
+Must give credit where credit is due
+
+Map of internet (router based): https://blog.kaspersky.com/amazing-internet-maps/10441/
+Map of the internet (domain popularity based): http://internet-map.net/
+Nmap logo: https://home-assistant.io/images/supported_brands/nmap.png
+Nmap banner: https://nmap.org/nmap_propaganda.html
+Typing animation: https://codepen.io/rusjames/pen/uAFhE
+QR Code generated: http://www.qr-code-generator.com/
+Footnote icons: https://raw.githubusercontent.com/konsav/social-icons/master/readme-images/preview.png
+Google Apps Script Pic: https://developers.google.com/apps-script/
+Typewriter effect: https://css-tricks.com/snippets/css/typewriter-effect/
+Darken as hover: http://stackoverflow.com/questions/18322548/black-transparent-overlay-on-image-hover-with-only-css
+Underline at bottom of text: http://stackoverflow.com/questions/28623446/expand-bottom-border-on-hover
