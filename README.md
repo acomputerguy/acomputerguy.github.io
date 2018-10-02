@@ -1,5 +1,5 @@
 # Domain from NameCheap and hosted by Github web server
 ## Github URL: acomputerguy.github.io
-## Public URL: acgpage.me
+## Public URL: http://acgblog.me
 Website created from scratch for blog
-(WIP... 20% done)
+(WIP... 50% done)
