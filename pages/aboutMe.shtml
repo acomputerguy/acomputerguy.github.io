@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 		<title>acg - Home</title>
 		<link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
-		<link rel="stylesheet" type="text/css" href="../assets/css/aboutMe.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/aboutme.css">
 		<link rel="icon" href="../assets/images/favicon.png">
 		<link rel 
 	</head>
@@ -39,7 +39,7 @@
 			my ideas and uploading content on this wide range of 
 			computer-related material.</p>
 			
-			<div id="profilePicChange"></div>		
+			<div id="profilePicChange"></div>
 			
 			<h3>How is this blog any different than the 123,456,789 blogs that's
 			already on the Internet?</h3>
