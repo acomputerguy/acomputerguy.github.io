@@ -1,18 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120463983-1"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-
-		  gtag('config', 'UA-120463983-1');
-		</script>
 		<meta charset="utf-8" />
 		<title>acg - Home</title>
 		<link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/contact.css">
 		<link rel="icon" href="../assets/images/favicon.png">
 	</head>
 	<body>
@@ -20,9 +12,9 @@
 		
 		<nav>
 			<ul>
-				<li><a id="currentPage" href="contact.shtml"><div class="expandBottom">contact</div></a></li>
-				<li><a href="aboutMe.shtml"><div class="expandBottom">about me</div></a></li>
-				<li><a href="blog.shtml"><div class="expandBottom">blog</div></a></li>
+				<li><a id="currentPage" href="contact.shtml"><img src = "../assets/images/page_all/icon_envelope.png" alt ="envelope icon"> contact</div></a></li>
+				<li><a href="aboutMe.shtml"><img src = "../assets/images/page_all/icon_pencil.png" alt ="pencil icon"> about me</div></a></li>
+				<li><a href="blog.shtml"><img src = "../assets/images/page_all/icon_folder.png" alt ="folder icon"> blog</div></a></li>
 			</ul>
 		</nav>
 
@@ -31,30 +23,32 @@
 		<section>
 		<div class="centerPage">
 			<h3>Drop me a line</h3>
-			<form>
+			<form action="mailto:fxw4736@rit.edu" method="post" enctype="text/plain">
 				<input id="contact-Name" type="text" name="name" placeholder="Name*"><p></p>
 				<input id="contact-Email" type="text" name="email" placeholder="Email*"><p></p>
-				<input id="contact-Subject" type="text" name="subject" placeholder="Subject"><p></p>
+				<input id="contact-Subject" type="text" name="subject" placeholder="Subject*"><p></p>
 				<input id="contact-Message" type="text" name="message" placeholder="Message"><p></p>
-				<input type="submit" class="contactButton" name="submit" onclick="getInput()" value="Send">
+				<!-- need to use icon_paperPlane.png its not used atm -->
+				<div "myButton"><input type="submit" class="contactButton" name="submit" onclick="getInput()" value="Send"></div>
 			</form>
 		</div>
 		</section>
+		<div class="footerDots"></div>
 	<footer>
 		<a href ="https://maps.google.com/?daddr=Rochester+Institute+of+Technology,+Rochester,+NY">
-			<img src="../assets/images/stock_location.png" alt="Currently at">
+			<img src="../assets/images/page_all/stock_location.png" alt="Currently at">
 		</a>
 		<a href="mailto:webb.felipe@gmail.com">
-			<img src="../assets/images/stock_email.png" alt="Email">
+			<img src="../assets/images/page_all/stock_email.png" alt="Email">
 		</a>
 		<a href="https://www.reddit.com/user/acomputerguy1/">
-			<img src="../assets/images/stock_reddit.png" alt="Reddit">
+			<img src="../assets/images/page_all/stock_reddit.png" alt="Reddit">
 		</a>
 		<a href="https://www.linkedin.com/in/felipe-webb">
-			<img src="../assets/images/stock_linkedin.png" alt="LinkedIn">
+			<img src="../assets/images/page_all/stock_linkedin.png" alt="LinkedIn">
 		</a>
 		<a href="https://github.com/acomputerguy">
-			<img src="../assets/images/stock_github.png" alt="GitHub">
+			<img src="../assets/images/page_all/stock_github.png" alt="GitHub">
 		</a>
 	</footer>
 	
@@ -64,7 +58,19 @@
 				var email = document.getElementById("contact-Email").value;
 				var subject = document.getElementById("contact-Subject").value;
 				var comment = document.getElementById("contact-Message").value;
+		
+				if (name == "")
+				{ document.getElementById("contact-Name").style.borderColor = "red"; }
+				else if (name !== "") { document.getElementById("contact-Name").style.borderColor = "#0099ff"; }
+
+				if (email == "")
+				{ document.getElementById("contact-Email").style.borderColor = "red"; }
+				else if (email !== "") { document.getElementById("contact-Email").style.borderColor = "#0099ff"; }
 				
+				if (subject == "")
+				{ document.getElementById("contact-Subject").style.borderColor = "red"; }
+				else if (subject !== "") { document.getElementById("contact-Subject").style.borderColor = "#0099ff"; }
+
 				alert(name + " " + email + " " + subject + " " + comment);
 			}
 	</script>
