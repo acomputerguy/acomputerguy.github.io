@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>acg - Blog</title>
+		<link rel="stylesheet" type="text/css" href="../../assets/css/styles.css">
+		<link rel="icon" href="../../assets/images/favicon.png">
+	</head>
+	<body>
+		<h1 class="title"><a href="../index.shtml">acomputerguy</a></h1>
+		
+		<nav>
+			<ul>
+				<li><a href="../contact.shtml"><img src = "../../assets/images/page_all/icon_envelope.png" alt ="envelope icon"> contact</div></a></li>
+				<li><a href="../aboutMe.shtml"><img src = "../../assets/images/page_all/icon_pencil.png" alt ="pencil icon"> about me</div></a></li>
+				<li><a href="../blog.shtml"><img src = "../../assets/images/page_all/icon_folder.png" alt ="folder icon"> blog</div></a></li>
+			</ul>
+		</nav>
+		<div class="blogPostBG automateClassBG">
+			<div class="titleBox">
+			<h2>Automating Classwork</h2>
+			<p class="postDate">Fall 2016</p>
+			<ul class="blogTopics">
+				<li>PowerCLI</li>
+				<li>Security Competition</li>
+				<li>Virtualization</li>
+				<li>VMware</li>
+				<li>vCenter</li>
+				<li>ESXi</li>
+				<li>iSCSI</li>
+				<li>Back-End</li>
+			</ul>
+			</div>
+		</div>
+		<aside>
+			<ul>
+				<li class="nextPost"><a href="1_firstDay.shtml">Day 1 at Work: Efficiency</a></li>
+				<li class="nextPost"><a href="2_funWithNmap.shtml">Perpetual Scanning</a></li>
+				<li class="currentPost"><a href="3_automateClass.shtml">Automating a Competition</a></li>
+				<li class="nextPost"> <a href="4_webScraper.shtml">Web Scraping with Imgur</a></li>
+				<li class="nextPost"><a href="5_socialEng.shtml">Online Scams - HowTo Avoid</a></li>
+			</ul>
+		</aside>
+		<section class="textAllCenter">
+
+			<p>This post is about code I wrote to automate the duties of someone running a competition so my partner and I <s>don't have to come to class anymore</s>
+			can invest more time in other projects. Do more with less, right?!</p>
+			<p>This attack/defend class is structured to be divided into 3 rotating teams: 
+			<font color="blue">blue</font> team, <font color="red">red</font> team, and <font color="white">white</font> team.
+			White <font color="white">deploys</font>, red <font color="red">attacks</font>, and blue <font color="blue">defends</font>
+			their respective virtual machines. 
+			There is a fourth role, the back-end/DevOps guy.</p>
+
+			<p class="subtopic">Infrastructure in place<p>
+			<hr class="subtopicDecor">
+			<p>The <b>physical topology</b> below has 36 computers (for the students) and each bench
+			has 2 computers with have its own VLAN when connected to the core switch.
+			There is quite a distance between the computers and the switch so there
+			are wires running across the room with patch panels in between.</p>
+			<figure>
+				<img class="blogPic" src="../../assets/images/3_automateclass/visio_cdtphysicaltop.png" alt="visio_cdtphysicaltop.png">
+			</figure>
+			<p>The <b>logical topology</b> below shows the servers supporting it.
+			<ul>
+				<li>Windows 2012 Server - NAS as a iSCSI target so if the virtual
+				infrastructure is down, storage server still works so virtual
+				machines are accessible</li>
+				<li>vCenter Server - GUI for all the VMs on the NAS, be it web
+				browser or desktop application. Runs on Linux</li>
+				<li>ESXi - hosts all the virtual machines for the competition</li>
+			</ul>
+			</p>
+			<p>One major concern I had with the topology laid out was the lack
+			of 10 gigabit ethernet connection to the ESXi server hosting the VMs
+			from other computers. This made processing the machines very slow
+			during crunch time and required students to show up early and wait
+			for the Virtual Machines to finish loading for sandboxing.</p>
+			<figure>
+				<img class="blogPic" src="../../assets/images/3_automateclass/visio_cdtlogicaltop.png" alt="visio_cdtlogicaltop.png">
+			</figure>
+			
+			<p class="subtopic">Automating in-class competitions</p>
+			<hr class="subtopicDecor">
+			
+			<p>The script accomplishes the following:</p>
+			
+			<ul>
+				<li>Request snapshot information</li>
+				<li>Grant access to students</li>
+				<li>Turn on virtual boxes</li>
+				<li>Wait ~2 hours</li>
+				<li>Message users before time limit</li>
+				<li>Disconnect students</li>
+				<li>Take away permissions</li>
+				<li>Suspend virtual boxes</li>
+				<li>Take snapshots</li>
+			</ul>
+			
+			<p class="subtopic">Snapshot Prompts & Access Granted</p>
+			<hr class="subtopicDecor">
+			
+			<p>Prompt user for snapshot folder names and descriptions for letting the code handle all the snapshots at the end.
+			Beats having to wait 30 minutes to 1 hour after class to type some more commands! (since building full snapshots would happen one at a time).</p>
+			<figure>
+				<img class="blogPic" src="../../assets/images/3_automateclass/comp1_snapshotDescriptions.png" alt="comp1_snapshotDescriptions.png">
+			</figure>
+			
+			<p>Grant access to all Red & Blue Team members via Console Only roles (done by adjusting privileges). In PowerCLI,
+			permissions consist of roles, and roles consist of privileges so the hierarchy goes Permissions->Roles->Privileges.</p>
+			<figure>
+				<img class="blogPic" src="../../assets/images/3_automateclass/comp2_privileges.png" alt="comp2_privileges.png">
+			</figure>
+			
+			<p>I figured printing out the virtual machines with their respective team colors would be neater than a constant black/white terminal.</p>
+			<figure>
+				<img class="blogPic" src="../../assets/images/3_automateclass/comp3_vmsInCompetition.png" alt="comp3_vmsInCompetition.png">
+			</figure>
+			
+			<p class="subtopic">Starting Virtual Boxes Approach</p>
+			<hr class="subtopicDecor">
+			
+			<p>Turn on blue and red team virtual machines consecutively (that users haven't already turned on).
+			Sometimes people will be impatient and start the boxes anyways, so I take that into account in my code.</p>
+			
+			<p>Timing was a problem - white team and I usually come in early to make sure the infrastructure is ready
+			for the competition. We would have to come in even earlier because the server could not handle processing 
+			so many requests for so many virtual machines in a timely manner (hence the x1GB ethernet connection).</p>
+			
+			<p>If the code sent multiple requests to the server about turning on the virtual machines, the queue
+			would take <i>significantly longer</i> to process, or even <i>expire</i> so the query never goes through.
+			Consequently, I had to modify all phases of the code to issue each command to run in a linear fashion.</p>
+			<figure>
+				<img class="blogPic" src="../../assets/images/3_automateclass/comp4_currentlyOn.png" alt="comp4_currentlyOn.png">
+			</figure>
+			
+			<p class="subtopic">Powershell Progress Bar</p>
+			<hr class="subtopicDecor">
+			
+			<p>Instead of waiting for the competition to be over, I included a progress bar to show how much time has 
+			passed with the <code>Write-Progress</code> cmdlet. Because of hiccups in the lab environment such as
+			DNS going down or white team having delays, I would change the timer accordingly.</p>
+			<figure>
+				<img class="blogPic" src="../../assets/images/3_automateclass/comp5_progressBar.png" alt="comp5_progressBar.png">
+			</figure>
+			
+			<p class="subtopic">Broadcast Message</p>
+			<hr class="subtopicDecor">
+			
+			<p>White team always had to yell, "TEN MINUTES LEFT!" then 5 minutes later, "FIVE MINUTES LEFT!" towards the end of the class.
+			I always wanted to figure out a way to get the message across by saving a few strains on their vocal chords.</p>
+			<p>When I found out about this Broadcast Message of the Day [MoTD] feature, I was ecstatic. I had to be careful to not abuse this,
+			since it sends a broadcast message to all users and they are forced to click on "OK" to continue.</p>
+			<p>There were two ways to access the virtual machines in the competition: <u>VMware vSphere client</u> on desktop and
+			<u>Web GUI</u> (Firefox is less of a hassle).
+			The feature does not exist on a web browser, and there are future plans for the next back-end guy to push accessibility
+			primarily to the cloud, so the broadcast messages were fun while they lasted.</p>
+			<p>For giggles, I would let white team define the message:
+				<ul>
+					<li>5 minutes left lol</li>
+					<li>Make like an autobot and ROLLOUT</li>
+					<li>time to panic</li>
+					<li>it's hiiiiiigh noon</li>
+				</ul>
+			</p>
+			<figure>
+				<img class="blogPic" src="../../assets/images/3_automateclass/comp6_alertStudents.png" alt="comp6_alertStudents.png">
+			</figure>
+			
+			<p class="subtopic">Killing Sessions & Suspending VMs</p>
+			<hr class="subtopicDecor">
+			
+			<p>My professor wanted to know if I could terminate session keys of all students, thereby kicking them off the virtual environment.
+			I wanted to know if it could be done.</p>
+			<p>I came across session manager which allows me to forcibly remove the student's connection to the server and pull up other pieces of information
+			such as username, key, full name, IP address, login time, and last active time.</p>
+			<p>Second to last stage is to suspend all red and blue team boxes that haven't reached Suspend state.
+			There was a few moments when the student still has access to the virtual machine, so I needed to kick
+			them out of my infrastructure to actually ensure the new permissions go into effect.</p>
+			<p>By grabbing the students' session key, I could terminate it.</p>
+			<figure>
+				<img class="blogPic" src="../../assets/images/3_automateclass/comp7_terminateSessions.png" alt="comp7_terminateSessions.png">
+			</figure>
+			
+			<p>Last task is to take snapshots of all virtual machines in the competition with predefined user input from the beginning.
+			Finally, to suspend the machines without any issues. They are done sequentially so the script runs until the last
+			query is done.</p>
+			
+			<p>I check back the next day to see if anything went wrong and ensure the virtual machines are ready for next week's competition.</p>
+			<figure>
+				<img class="blogPic" src="../../assets/images/3_automateclass/comp8_suspendingVMs.png" alt="comp8_suspendingVMs.png">
+			</figure>
+			</section>	
+		<div class="footerDots"></div>	
+		<footer>
+			<a href ="https://maps.google.com/?daddr=Rochester+Institute+of+Technology,+Rochester,+NY">
+				<img src="../../assets/images/page_all/stock_location.png" alt="Currently at">
+			</a>
+			<a href="mailto:webb.felipe@gmail.com">
+				<img src="../../assets/images/page_all/stock_email.png" alt="Email">
+			</a>
+			<a href="https://www.reddit.com/user/acomputerguy1/">
+				<img src="../../assets/images/page_all/stock_reddit.png" alt="Reddit">
+			</a>
+			<a href="https://www.linkedin.com/in/felipe-webb">
+				<img src="../../assets/images/page_all/stock_linkedin.png" alt="LinkedIn">
+			</a>
+			<a href="https://github.com/acomputerguy">
+				<img src="../../assets/images/page_all/stock_github.png" alt="GitHub">
+			</a>
+		</footer>
+	</body>
+	
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>acg - Home</title>
+		<link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/contact.css">
+		<link rel="icon" href="../assets/images/favicon.png">
+	</head>
+	<body>
+		<h1 class="title"><a href="index.shtml">acomputerguy</a></h1>
+		
+		<nav>
+			<ul>
+				<li><a id="currentPage" href="contact.shtml"><img src = "../assets/images/page_all/icon_envelope.png" alt ="envelope icon"> contact</div></a></li>
+				<li><a href="aboutMe.shtml"><img src = "../assets/images/page_all/icon_pencil.png" alt ="pencil icon"> about me</div></a></li>
+				<li><a href="blog.shtml"><img src = "../assets/images/page_all/icon_folder.png" alt ="folder icon"> blog</div></a></li>
+			</ul>
+		</nav>
+
+		<h2><code class="pageTitle">user@site:~# sendmail -t</code></h2>
+
+		<section>
+		<div class="centerPage">
+			<h3>Drop me a line</h3>
+			<form action="mailto:fxw4736@rit.edu" method="post" enctype="text/plain">
+				<input id="contact-Name" type="text" name="name" placeholder="Name*"><p></p>
+				<input id="contact-Email" type="text" name="email" placeholder="Email*"><p></p>
+				<input id="contact-Subject" type="text" name="subject" placeholder="Subject*"><p></p>
+				<input id="contact-Message" type="text" name="message" placeholder="Message"><p></p>
+				<!-- need to use icon_paperPlane.png its not used atm -->
+				<div "myButton"><input type="submit" class="contactButton" name="submit" onclick="getInput()" value="Send"></div>
+			</form>
+		</div>
+		</section>
+		<div class="footerDots"></div>
+	<footer>
+		<a href ="https://maps.google.com/?daddr=Rochester+Institute+of+Technology,+Rochester,+NY">
+			<img src="../assets/images/page_all/stock_location.png" alt="Currently at">
+		</a>
+		<a href="mailto:webb.felipe@gmail.com">
+			<img src="../assets/images/page_all/stock_email.png" alt="Email">
+		</a>
+		<a href="https://www.reddit.com/user/acomputerguy1/">
+			<img src="../assets/images/page_all/stock_reddit.png" alt="Reddit">
+		</a>
+		<a href="https://www.linkedin.com/in/felipe-webb">
+			<img src="../assets/images/page_all/stock_linkedin.png" alt="LinkedIn">
+		</a>
+		<a href="https://github.com/acomputerguy">
+			<img src="../assets/images/page_all/stock_github.png" alt="GitHub">
+		</a>
+	</footer>
+	
+	<script type="text/javascript">
+			function getInput(){
+				var name = document.getElementById("contact-Name").value;
+				var email = document.getElementById("contact-Email").value;
+				var subject = document.getElementById("contact-Subject").value;
+				var comment = document.getElementById("contact-Message").value;
+		
+				if (name == "")
+				{ document.getElementById("contact-Name").style.borderColor = "red"; }
+				else if (name !== "") { document.getElementById("contact-Name").style.borderColor = "#0099ff"; }
+
+				if (email == "")
+				{ document.getElementById("contact-Email").style.borderColor = "red"; }
+				else if (email !== "") { document.getElementById("contact-Email").style.borderColor = "#0099ff"; }
+				
+				if (subject == "")
+				{ document.getElementById("contact-Subject").style.borderColor = "red"; }
+				else if (subject !== "") { document.getElementById("contact-Subject").style.borderColor = "#0099ff"; }
+
+				alert(name + " " + email + " " + subject + " " + comment);
+			}
+	</script>
+	</body>
+</html>

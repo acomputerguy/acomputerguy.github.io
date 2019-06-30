@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head> <!-- head or header -->
+		<meta charset="utf-8" />
+		<title>acg - Blog</title>
+		<link rel="stylesheet" type="text/css" href="../../assets/css/styles.css">
+		<link rel="icon" href="../../assets/images/favicon.png">
+	</head>
+	<body>
+		<h1 class="title"><a href="../index.shtml">acomputerguy</a></h1>
+		
+		<nav>
+			<ul>
+				<li><a href="../contact.shtml"><img src = "../../assets/images/page_all/icon_envelope.png" alt ="envelope icon"> contact</div></a></li>
+				<li><a href="../aboutMe.shtml"><img src = "../../assets/images/page_all/icon_pencil.png" alt ="pencil icon"> about me</div></a></li>
+				<li><a href="../blog.shtml"><img src = "../../assets/images/page_all/icon_folder.png" alt ="folder icon"> blog</div></a></li>
+			</ul>
+		</nav>
+		<div class="blogPostBG funWithNmapBG">
+			<div class="titleBox">
+			<h2>Nmap: Perpetual scan and shared code</h2>
+			<p class="postDate">Fall 2016</p>
+			<ul class="blogTopics">
+				<li>Scanning</li>
+				<li>Nmap</li>
+				<li>Bash</li>
+				<li>Linux</li>
+				<li>Red Team</li>
+				<li>Blue Team</li>
+			</ul>
+			</div>
+		</div>
+		<aside>
+			<ul>
+				<li class="nextPost"><a href="1_firstDay.shtml">Day 1 at Work: Efficiency</a></li>
+				<li class="currentPost"><a href="2_funWithNmap.shtml">Perpetual Scanning</a></li>
+				<li class="nextPost"><a href="3_automateClass.shtml">Automating a Competition</a></li>
+				<li class="nextPost"> <a href="4_webScraper.shtml">Web Scraping with Imgur</a></li>
+				<li class="nextPost"><a href="5_socialEng.shtml">Online Scams - HowTo Avoid</a></li>
+			</ul>
+		</aside>	
+		<section class="textAllCenter">						
+			<figure>
+				<img class="blogPic" src="../../assets/images/2_funwithnmap/nmap_logo.png" alt="nmap logo.png">
+			</figure>
+			
+			<p>What's a solid example for a real-word situation where Nmap script is required?
+			A <b>perpetual scan</b>. This is usually done with a core server to carry out all the scans on the network for audits.</p>
+			
+			<p>Testing environment:
+				</p><ul>
+					<li>Kali Linux v2.0.0 virtual machine</li>
+					<li>Full-duplex network connections</li>
+					<li>Bash v4.3.30</li>
+				</ul>
+			<p></p>
+
+			<p>Traditionally, Nmap is used as an offensive tool but the network mapper can also be used as a defensive tool. 
+			You can constantly scan your local subnet for any unexpected open ports. The code uses <i>Nmap</i> and <i>Ndiff</i> to 
+			constantly scan the machine it's running on and reveal any recent activity in ports on the spot.</p>
+
+			<p class="subtopic">Shared code...because sharing is caring!</p>
+			<hr class="subtopicDecor">
+						
+			<figure>
+				<img class="blogPic" src = "../../assets/images/2_funwithnmap/nmapbanner.png" alt="nmapbanner.png">
+			</figure>
+			
+			<p>I am the back-end guy for a blue/red/white team class. 
+			For fun, I figured I'd go the extra mile and write an
+			<a href="https://github.com/acomputerguy/Side-Projects/blob/master/Red-Blue-Team/perpetualScan.sh">active scanning script</a> 
+			in bash for the blue and red teams.</p>
+			
+			<p>When writing this, I thought about how <b>time</b> is a crucial factor to take into account. Here I have laid out a specific scenario:</p>
+			
+			<figure>
+				<img class="blogPic" src="../../assets/images/2_funwithnmap/nmap_visioExample.png" alt="nmap visio example.png">
+			</figure>
+			
+			<p>What if you're sequentially scanning a large subnet and the time the scan takes to go from the first host to the second to 
+			last host is enough time for an attacker to get into the <i>last box</i>, use a service, then terminate the process, and close the port?</p>
+			
+			<p>Nmaps' 'T' argument allows for concurrent packet requests. By running the scans on multiple boxes in parallel, this solves the issue of 
+			an attacker taking advantage of time from scans going through one machine at a time.</p>
+			
+			<p>The Nmap arguments used are for a service scan, printing out to an xml file, and supercharged for high speed packets<a href="https://www.professormesser.com/nmap/how-to-supercharge-your-nmap-scans/4/"><sup>1</sup></a>. 
+			The tradeoff is you know exactly when a port opened at the cost of a packet storm.</p>
+			
+			<p>
+			Some features the respective teams should add:
+			</p>
+			<p><p style = "display:inline;color:blue">Blue</p> team: implement a form of reactive security (i.e. close port when opened)</p>
+			<p><p style ="display:inline;color:red">Red</p> team: look into spoofing the IP &amp; MAC address with various addresses from multiple packets</p>
+			</p>
+			
+			<p>Flags I hope the red team do/don't use:
+			</p><ul>
+				<li>(-sT) Not to use TCP connect scans - will leave audible trail in logs</li>
+				<li>(-sP) Not to do a ping sweep - way too many ICMP echo requests at once, obvious it's a new conversation each time</li>
+				<li>(-sR) Not to do an RPC scan - it will "grind" out many packets since it opens lots of application sessions via RPC</li>
+				<li>(-n) Reverse DNS is turned on by default - will add to hosts file, port 53 will snitch on you</li>
+			</ul>
+			
+			<p class="subtopic">Perpetual scan</p>
+			<hr class="subtopicDecor">
+			
+			<p>Start by running the script in the background</p>
+			<figure>
+				<img class="blogPic" src="../../assets/images/2_funwithnmap/nmap_background.png" alt="nmap background.png">
+			</figure>
+
+			<p>Checking the status of the SSH service - appears to be inactive (off). Will be starting the service to show my script works</p>
+			<figure>
+				<img class="blogPic" src="../../assets/images/2_funwithnmap/nmap_statusOff.png" alt="nmap status off.png">
+			</figure>
+			
+			<p>Time to turn the ssh service on and verify it's running.</p>
+			<figure>
+				<img class="blogPic" src="../../assets/images/2_funwithnmap/nmap_statusOn.png" alt="nmap status on.png">
+			</figure>
+			
+			<p>The changes are reflected as results are parsed through to store the essentials in a log file.</p>
+			<figure>
+				<img class="blogPic" src="../../assets/images/2_funwithnmap/nmap_reportLog.png" alt="nmap report log.png">
+			</figure>
+
+			<p><a href="https://nmap.org/book/man-performance.html">Nmap official documentation</a> helped the most!</p>
+
+			<p>To replicate this to a real world scenario as close as possible, I had the following features implemented:</p>
+			<ul>
+				<li>Automatically obtain the local IP address being used</li>
+				<li>Scan again when the scan is over</li>
+				<li>Check the differences between the old and new scan results</li>
+				<li>Timestamp the scan results</li>
+				<li>Document results to a log file when a port is opened or closed</li>
+				<li>Overwrite new results into older file</li>
+				<li>Spin up a new thread for each host</li>
+			</ul>
+		</section>
+		<div class="footerDots"></div>
+		<footer>
+			<a href ="https://maps.google.com/?daddr=Rochester+Institute+of+Technology,+Rochester,+NY">
+				<img src="../../assets/images/page_all/stock_location.png" alt="Currently at">
+			</a>
+			<a href="mailto:webb.felipe@gmail.com">
+				<img src="../../assets/images/page_all/stock_email.png" alt="Email">
+			</a>
+			<a href="https://www.reddit.com/user/acomputerguy1/">
+				<img src="../../assets/images/page_all/stock_reddit.png" alt="Reddit">
+			</a>
+			<a href="https://www.linkedin.com/in/felipe-webb">
+				<img src="../../assets/images/page_all/stock_linkedin.png" alt="LinkedIn">
+			</a>
+			<a href="https://github.com/acomputerguy">
+				<img src="../../assets/images/page_all/stock_github.png" alt="GitHub">
+			</a>
+		</footer>
+	</body>
+	
+</html>

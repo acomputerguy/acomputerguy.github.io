@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>acg - Blog</title>
+		<link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
+		<link rel="icon" href="../assets/images/favicon.png">
+	</head>
+	<body>
+		<h1 class="title"><a href="index.shtml">acomputerguy</a></h1>
+		
+		<nav>
+			<ul>
+				<li><a href="contact.shtml"><img src = "../assets/images/page_all/icon_envelope.png" alt ="envelope icon"> contact</div></a></li>
+				<li><a href="aboutMe.shtml"><img src = "../assets/images/page_all/icon_pencil.png" alt ="pencil icon"> about me</div></a></li>
+				<li><a id="currentPage" href="blog.shtml"><img src = "../assets/images/page_all/icon_folder.png" alt ="folder icon"> blog</div></a></li>
+			</ul>
+		</nav>
+		<h2><code class="pageTitle">user@site:~# pwd <br />/root/blog</code></h2>
+
+		<aside>
+			<ul>
+				<li class="nextPost"><a href="posts/1_firstDay.shtml">Day 1 at Work: Efficiency</a></li>
+				<li class="nextPost"><a href="posts/2_funWithNmap.shtml">Perpetual Scanning</a></li>
+				<li class="nextPost"><a href="posts/3_automateClass.shtml">Automating a Competition</a></li>
+				<li class="nextPost"><a href="posts/4_webScraper.shtml">Web Scraping with Imgur</a></li>
+				<li class="nextPost"><a href="posts/5_socialEng.shtml">Online Scams - HowTo Avoid</a></li>
+			</ul>
+		</aside>
+		<h2>Page Under Construction</h2>
+		<section>			
+			<!-- slideshow for blog -->
+			
+			<!--
+			
+			<h2>Because 255 characters isn't enough</h2>
+			
+			<h2>Quirky computer things</h2>
+
+			<h3>User Agents</h3>
+			<p id="useragentBrowser"></p>
+			
+			<p id="useragentOS"></p>
+			
+			<h3>Quick Response Code</h3>
+			<p>>What is this QR code for?</p>
+			<figure>
+				<img src = "../assets/images/qrcode.png" alt="qrcode.png">
+			</figure>
+			
+			<h3>Base values</h3>
+			<!-- convert from user input (ascii+numbers) to base 2, 10, 16, 64 -- >
+			<p>Input a number <input id="input-Base10" type="text" name="number" value=""></p>
+			<input type="submit" name="submit" onclick="convertBaseInput()" value="Submit">
+			<p id="baseValues"></p>
+			
+		</section>
+		
+		<div class="footerDots"></div>
+		<footer>
+			<a href ="https://maps.google.com/?daddr=Rochester+Institute+of+Technology,+Rochester,+NY">
+				<img src="../assets/images/page_all/stock_location.png" alt="Currently at">
+			</a>
+			<a href="mailto:webb.felipe@gmail.com">
+				<img src="../assets/images/page_all/stock_email.png" alt="Email">
+			</a>
+			<a href="https://www.reddit.com/user/acomputerguy1/">
+				<img src="../assets/images/page_all/stock_reddit.png" alt="Reddit">
+			</a>
+			<a href="https://www.linkedin.com/in/felipe-webb">
+				<img src="../assets/images/page_all/stock_linkedin.png" alt="LinkedIn">
+			</a>
+			<a href="https://github.com/acomputerguy">
+				<img src="../assets/images/page_all/stock_github.png" alt="GitHub">
+			</a>
+		</footer>
+		<script type="text/javascript">
+			function identifyBrowser (){
+				p = document.getElementById("useragentBrowser");
+				var web_User_Agent = navigator.userAgent;
+				var web_Browser;
+				if ( /Firefox/.test(web_User_Agent) )
+				{ web_Browser = "Firefox" }
+				else if ( /Chrome/.test(web_User_Agent) )
+				{ web_Browser = "Chrome" }
+				else if ( /Internet Explorer/.test(web_User_Agent) )
+				{ web_Browser = "Internet Explorer" }
+				else if ( /Safari/.test(web_User_Agent) )
+				{ web_Browser = "Safari" }
+				else if ( /Opera/.test(web_User_Agent) )
+				{ web_Browser = "Opera" }
+				else { web_Browser = "this identifies a few of the popular web browsers. still WIP!" }
+				p.innerHTML = "Your web browser is: " + web_Browser;
+			}
+			identifyBrowser();
+
+			function identifyOperatingSystem (){
+				p = document.getElementById("useragentOS");
+				var OS_User_Agent = navigator.userAgent;
+				var web_OS;
+				if ( /Windows NT 5.0/.test(OS_User_Agent) )
+				{ web_OS = "Windows 2000" }
+				else if ( /Windows NT 5.1/.test(OS_User_Agent) )
+				{ web_OS = "Windows XP" }
+				else if ( /Windows NT 5.2/.test(OS_User_Agent) )
+				{ web_OS = "Windows XP or Windows Server 2003" }
+				else if ( /Windows NT 6.0/.test(OS_User_Agent) )
+				{ web_OS = "Windows Vista or Windows Sever 2008" }
+				else if ( /Windows NT 6.1/.test(OS_User_Agent) )
+				{ web_OS = "Windows 7 or Windows Server 2008 R2" }
+				else if ( /Windows NT 6.2/.test(OS_User_Agent) )
+				{ web_OS = "Windows 8 or Windows Server 2012" }
+				else if ( /Windows NT 6.3/.test(OS_User_Agent) )
+				{ web_OS = "Windows 8.1 or Windows Server 2012 R2" }
+				else if ( /Windows NT 10.0/.test(OS_User_Agent) )
+				{ web_OS = "Windows 10 or Windows Server 2016" }
+				else { web_OS = "this identifies a few of the popular OS. still WIP!" }
+				p.innerHTML = "Your OS is: " + web_OS;
+			}
+			identifyOperatingSystem();
+			
+			function convertBaseInput(){
+				var base10 = parseInt(document.getElementById("input-Base10").value);
+				var base2 = base10.toString(2);
+				var base16 = base10.toString(8);
+				var base16 = base10.toString(16);
+				document.getElementById("baseValues").innerHTML = 
+				"Base 2: " + base10 + "<br>" + "Base 8: " + base2 + "<br>" + "Base 16: " + base16;
+			}
+		</script>
+		-->
+	</body>	
+</html>

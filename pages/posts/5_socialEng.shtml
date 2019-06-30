@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>acg - Blog</title>
+		<link rel="stylesheet" type="text/css" href="../../assets/css/styles.css">
+		<link rel="icon" href="../../assets/images/favicon.png">
+	</head>
+	<body>
+		<h1 class="title"><a href="../index.shtml">acomputerguy</a></h1>
+		
+		<nav>
+			<ul>
+				<li><a href="../contact.shtml"><img src = "../../assets/images/page_all/icon_envelope.png" alt ="envelope icon"> contact</div></a></li>
+				<li><a href="../aboutMe.shtml"><img src = "../../assets/images/page_all/icon_pencil.png" alt ="pencil icon"> about me</div></a></li>
+				<li><a href="../blog.shtml"><img src = "../../assets/images/page_all/icon_folder.png" alt ="folder icon"> blog</div></a></li>
+			</ul>
+		</nav>
+		<div class="blogPostBG socialEngBG">
+			<div class="titleBox">
+			<h2>Technical approach to Social Engineering</h2>
+			<p class="postDate">Spring 2018</p>
+			<ul class="blogTopics">
+				<li>Scam</li>
+				<li>WhoIs</li>
+				<li>Reverse Engineering</li>
+				<li>Social Engineering</li>
+				<li>Malware</li>
+			</ul>
+			</div>
+		</div>
+		<aside>
+			<ul>
+				<li class="nextPost"><a href="1_firstDay.shtml">Day 1 at Work: Efficiency</a></li>
+				<li class="nextPost"><a href="2_funWithNmap.shtml">Perpetual Scanning</a></li>
+				<li class="nextPost"><a href="3_automateClass.shtml">Automating a Competition</a></li>
+				<li class="nextPost"><a href="4_webScraper.shtml">Web Scraping with Imgur</a></li>
+				<li class="currentPost"><a href="5_socialEng.shtml">Online Scams - HowTo Avoid</a></li>
+			</ul>
+		</aside>
+		<section class="textAllCenter">
+
+			<p>When we all started growing up, our parents would often remind us to not talk to strangers, hence the term, stranger danger 
+			And now we <a href="https://www.google.com/search?q=online+co-op+video+game">literally talk</a> to
+			<a href="https://www.craigslist.org/">strangers</a> on a regular basis, 
+			sometimes to even <a href="https://www.uber.com/">get home</a>.
+			</p>
+			
+			<p>
+			I'll be discussing how to take precautions in regards to social engineering
+			with people from the internet from a <i>technical standpoint</i>.
+			From a technical standpoint, this includes inspecting URLs in email, WhoIs lookups,
+			reverse	engineering images, and metadata of images.
+			</p>
+			
+			<p>
+			When I was apartment hunting, some postings I read and emails I recieved was obviously a scam.
+			At this point, I like to play a game I call 'How many red flags can I find?' in a single email.
+			</p>
+			
+			<figure> 
+				<img class="longBlogPic" src = "../../assets/images/5_socialeng/social_eng_red_flag.png" alt="social_eng_red_flag.png">
+			</figure>
+			
+			<p class="subtopic">Inspecting the email</p>
+			<hr class="subtopicDecor">
+			<p>In Gmail I click on the vertical ellipses button as shown below 
+			and click on <i>Show original</i> to dissect the email.
+			</p>
+			<figure>
+				<img class="longBlogPic" src = "../../assets/images/5_socialeng/social_eng_show_original.png" alt="social_eng_show_original.png">
+			</figure>
+			<p>For example, in this email I wrote to myself:</p>
+			<figure>
+				<img class="blogPic" src = "../../assets/images/5_socialeng/social_eng_show_original_email1.png" alt="social_eng_show_original_email1.png">
+			</figure>
+			<p>Is really this in disguise:</p>
+			<figure>
+				<img class="blogPic" src = "../../assets/images/5_socialeng/social_eng_show_original_email2.png" alt="social_eng_show_original_email2.png">
+			</figure>
+			<p>
+			If the URL is different than what is in the email, the sender loses all credibility right away. But if it's a strange-looking URL and
+			the hidden URL is the same, run a check online to for potentially malicious links such as <a href="https://www.virustotal.com/gui/home/url">VirusTotal</a>.
+			</p>
+		
+			<p class="subtopic">WHOIS lookup on senders' email domain</p>
+			<hr class="subtopicDecor">
+			
+			<p>
+			I can obtain some critical information from a <i>whois</i>
+			lookup such as domain history, when the domain was purchased, and find out the contact to reach out to.
+			</p>
+			<figure>
+				<img class="blogPic" src = "../../assets/images/5_socialeng/social_eng_email_whois.png" alt="social_eng_email_whois.png">
+			</figure>
+			
+			<p>For starters, on the craigslist post I see posts for renting an apartment following a template. In these posts the provided contact information are:</p>
+			
+			<figure>
+				<img class="blogPic" src = "../../assets/images/5_socialeng/craigslist_scammer_contact_1.png" alt="craigslist_scammer_contact_1.png">
+			</figure>
+			<figure>
+				<img class="blogPic" src = "../../assets/images/5_socialeng/craigslist_scammer_contact_2.png" alt="craigslist_scammer_contact_2.png">
+			</figure>
+			<figure>
+				<img class="blogPic" src = "../../assets/images/5_socialeng/craigslist_scammer_contact_3.png" alt="craigslist_scammer_contact_3.png">
+			</figure>
+			<figure>
+				<img class="blogPic" src = "../../assets/images/5_socialeng/craigslist_scammer_contact_4.png" alt="craigslist_scammer_contact_4.png">
+			</figure>
+			
+			<p>The following domains are brought into question: <font color="red">ioptius</font>, <font color="red">ulivetez</font>, 
+			<font color="red">ebudot</font>, and <font color="red">wzedok</font>. The example we will look at is for wzedok.com.</p>
+			
+			<figure>
+				<img class="blogPic" src = "../../assets/images/5_socialeng/social_eng_whois_Lookup_1of2.png" alt="social_eng_whois_Lookup_1of2.png">
+			</figure>
+			<figure>
+				<img class="blogPic" src = "../../assets/images/5_socialeng/social_eng_whois_Lookup_2of2.png" alt="social_eng_whois_Lookup_1of2.png">
+			</figure>
+			
+			<p>From this WhoIs lookup we can see</p>
+			<ul>
+				<li>Creation date</li>
+				<li>Domain Registratr</li>
+				<li>Registrant/Admin/Tech Contact Information</li>
+			</ul>
+			
+			<p>A lot of the information is redacted or sent elsewhere (@contactprivacy.email) for privacy reasons to avoid automatic emails from bots asking about their domain or website.
+			Google Domains can obscure certain bits of information for you.
+			</p>
+			<figure>
+				<img class="blogPic" src = "../../assets/images/5_socialeng/social_eng_privacy_protection.png" alt="social_eng_privacy_protection.png">
+			</figure>		
+
+			<p>When the contact information is blank, that usually raises a red flag because there is no way to reach out to someone for questions and proves
+			the absolute minimal setup was done in providing information for the domain or does not want to be reached out to. But here, the contact information
+			is obscured, which isn't a crime...Let's see what else I can find out.</p>
+			
+			<figure>
+				<img class="blogPic" src = "../../assets/images/5_socialeng/social_eng_cr_dates_post.png" alt="social_eng_cr_dates_post.png">
+			</figure>
+			<figure>
+				<img class="blogPic" src = "../../assets/images/5_socialeng/social_eng_whois_dates.png" alt="social_eng_whois_dates.png">
+			</figure>
+			
+			<p>The dates line up so the same day the domain was made, the Craigslist post was created. Now if I could only verify that the domain's only use
+			is just for craigslist, I can't quite cross it off as a scammer just yet...</p>
+			
+			<figure>
+				<img class="blogPic" src = "../../assets/images/5_socialeng/social_eng_search_domain.png" alt="social_eng_search_domain.png">
+			</figure>
+			<p>By encapsulating the domain name in quotes I can have Google find all other uses for the domain name. I see it's only used for rental apartments
+			on Craigslist and nothing else, which is enough of a confirmation it's a scammer to me.</p>
+
+			<p>Another common scenario is having domain names that sound close to pre-existing organizations. I was reached out by someone on AirBnB
+			whose domain name was interesting.</p>
+			
+			<figure>
+				<img class="blogPic" src = "../../assets/images/5_socialeng/social_eng_email_SaundersTech.png" alt="social_eng_email_SaundersTech.png">
+			</figure>
+			
+			<p>I looked up "saunders tech nyc" and came across a similar naming convention as a public high school in the area. They use a different 
+			domain name of yonkerspublicschools, not saunders-tech!</p>
+			
+			<figure>
+				<img class="blogPic" src = "../../assets/images/5_socialeng/social_eng_highschool_domain.png" alt="social_eng_highschool_domain.png">
+			</figure>
+			
+			<p class="subtopic">Reverse Engineer Images</p>
+			<hr class="subtopicDecor">
+
+			<figure>
+				<img class="blogPic" src = "../../assets/images/5_socialeng/social_eng_google_images.png" alt="social_eng_google_images.png">
+			</figure>	
+			
+			<p>If you see a post looking too good to be true, odds are it's too good to be true. For example, here is a Craigslist scam posting:</p>
+			<figure>
+				<img class="blogPic" src = "../../assets/images/5_socialeng/social_eng_google_images_cr_post.png" alt="social_eng_google_images_cr_post.png">
+			</figure>
+			<p>A quick Google Images search will show me this originated from Centreport Lake Luxury Apartments. Or maybe the landlord fell in love 
+			with the room layout from another state so much, he/she had to model his unit identical to the other apartment...Yeah it's fake.</p>
+			<figure>
+				<img class="blogPic" src = "../../assets/images/5_socialeng/social_eng_google_images_cr_post_2.png" alt="social_eng_google_images_cr_post_2.png">
+			</figure>
+
+			<p class="subtopic">File metadata</p>
+			<hr class="subtopicDecor">
+			
+			<p>If someone has reached out to you and "personally" provided pictures for credibility, then you can take a look at the metadata to see if
+			the files are as credible as the owner claims (such as comparing a pictures coordinates to where the owner says the photo is).</p>
+			<p>Using a picture I took as an example:</p>
+			<figure>
+				<img class="longBlogPic" src = "../../assets/images/5_socialeng/Duck_On_Grass.jpg" alt="Duck_On_Grass.jpg">
+			</figure>
+			<p>GPS tagging is enabled on my phone so the image has coordinates on it.</p>
+			<figure>
+				<img class="longBlogPic" src = "../../assets/images/5_socialeng/Duck_On_Grass_Properties.png" alt="Duck_On_Grass.png">
+			</figure>
+			<p>Note the missing units associated with these numbers. Using the information provided, Google Maps will tell me where this location is.</p>
+			<figure>
+				<img class="blogPic" src = "../../assets/images/5_socialeng/Duck_On_Grass_GoogleMaps.png" alt="Duck_On_Grass.png">
+			</figure>
+			<p>And that's where the duck was! If another medium was used (Craigslist, Imgur, etc) odds are the metadata has been stripped so there can be no
+			tracing back, but these are all things everyone should know regardless.</p>
+			
+			
+			</section>	
+		<div class="footerDots"></div>	
+		<footer>
+			<a href ="https://maps.google.com/?daddr=Rochester+Institute+of+Technology,+Rochester,+NY">
+				<img src="../../assets/images/page_all/stock_location.png" alt="Currently at">
+			</a>
+			<a href="mailto:webb.felipe@gmail.com">
+				<img src="../../assets/images/page_all/stock_email.png" alt="Email">
+			</a>
+			<a href="https://www.reddit.com/user/acomputerguy1/">
+				<img src="../../assets/images/page_all/stock_reddit.png" alt="Reddit">
+			</a>
+			<a href="https://www.linkedin.com/in/felipe-webb">
+				<img src="../../assets/images/page_all/stock_linkedin.png" alt="LinkedIn">
+			</a>
+			<a href="https://github.com/acomputerguy">
+				<img src="../../assets/images/page_all/stock_github.png" alt="GitHub">
+			</a>
+		</footer>
+	</body>
+	
+</html>

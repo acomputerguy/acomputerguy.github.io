@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head> <!-- head or header -->
+		<meta charset="utf-8" />
+		<title>acg - Home</title>
+		<link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/aboutMe.css">
+		<link rel="icon" href="../assets/images/favicon.png">
+		<link rel 
+	</head>
+	<body>
+		<h1 class="title"><a href="index.shtml">acomputerguy</a></h1>
+		<nav>
+			<ul>
+				<li><a href="contact.shtml"><img src = "../assets/images/page_all/icon_envelope.png" alt ="envelope icon"> contact</div></a></li>
+				<li><a id="currentPage" href="aboutMe.shtml"><img src = "../assets/images/page_all/icon_pencil.png" alt ="pencil icon"> about me</div></a></li>
+				<li><a href="blog.shtml"><img src = "../assets/images/page_all/icon_folder.png" alt ="folder icon"> blog</div></a></li>
+			</ul>
+		</nav>
+		
+		<h2><code class="pageTitle">user@site:~# whoami</code></h2>
+		
+		<section class="textAllCenter">			
+			<p class="subtopic">&lt;/&gt;I'm the computer man!&lt;/&gt;</p>
+		
+			<video class="computerMan" poster="../assets/images/page_aboutme/computerman_VideoPoster.png" controls>
+				<source src="../assets/media/IM_THE_COMPUTER_MAN!!!!!.mp4" type="video/mp4">
+			</video>
+			
+			<p class="disclaimer"><b>Disclaimer:</b> I am not the man in the video!</p>
+			
+			<p>Heya, person behind a computer screen!</p>
+			
+			<h3>Who am I?</h3>
+			<p>I’m a <s>college student</s> full-time working college graduate
+			who enjoys maintaining this blog about various
+			computer topics such as security, networking, system administration,
+			cloud, and application development. I’ll be discussing 
+			my ideas and uploading content on this wide range of 
+			computer-related material.</p>
+			
+			<div id="profilePicChange"></div>		
+			
+			<h3>How is this blog any different than the 123,456,789 blogs that's
+			already on the Internet?</h3>
+			<p>While blogs are traditionally for people to talk about themselves,
+			I will have more of a focus on creating someting others can use and enjoy!</p>
+			
+			<h3>What are your special traits?</h3>
+			<ul>
+				<li>I possess the strength of 100 ethernet cables</li>
+				<li>My christmas wreath is made from computer parts</li>
+				<li>The weapon of choice is the CAT-5 o' 9 tails</li>
+				<li>Enjoy dank memes</li>
+				<li>Lover of Cable Porn!</li>
+				<li>To get people hyped up, I like to ask: "ARE YOU A 1 OR A 0?!"</li>
+			</ul>
+			
+		</section>
+		<hr class="subtopicDecor">
+		<figure>
+				<img class="blogPic" src="../assets/images/page_aboutme/acg_keyboard.png" alt="acg keyboard">
+		</figure>
+		
+		<div class="calendarIconTop">
+			<p><strong>Thanksgiving Break</strong></p>
+			<p>November 20th</p>
+		</div>
+		<div class="calendarIconBottom">
+			<p id="event_Countdown" class="augmentNumber"></p>
+			<p>days left</p>
+		</div>
+		
+		<div class="footerDots"></div>
+		<footer>
+			<a href ="https://maps.google.com/?daddr=Rochester+Institute+of+Technology,+Rochester,+NY">
+				<img src="../assets/images/page_all/stock_location.png" alt="Currently at">
+			</a>
+			<a href="mailto:webb.felipe@gmail.com">
+				<img src="../assets/images/page_all/stock_email.png" alt="Email">
+			</a>
+			<a href="https://www.reddit.com/user/acomputerguy1/">
+				<img src="../assets/images/page_all/stock_reddit.png" alt="Reddit">
+			</a>
+			<a href="https://www.linkedin.com/in/felipe-webb">
+				<img src="../assets/images/page_all/stock_linkedin.png" alt="LinkedIn">
+			</a>
+			<a href="https://github.com/acomputerguy">
+				<img src="../assets/images/page_all/stock_github.png" alt="GitHub">
+			</a>
+		</footer>
+		<script src="../assets/js/daysLeft.js"></script>
+	</body>
+</html>
