@@ -1,0 +1,144 @@
+/* TITLE */
+h1 {
+	background-image: url("../images/page_all/internetMap.png");
+	background-attachment: fixed;
+	width: 100vw;
+	height: 100vh;
+
+	margin-top: -21px;
+	padding-bottom: 21px;
+	
+	margin-bottom: 0;
+	margin-right: 0;
+}
+h1.titleHome div {
+	float: left;
+	padding-left: 1.2em;
+	color: #fff;
+	margin-top: 50vh;
+}
+/* type text on screen */
+.typeAnimation {
+	color: white; 
+	white-space: nowrap;
+	overflow: hidden;
+	width: 13em;
+	animation: type 2s steps(30, end);
+}
+@keyframes type{ 
+	from { width: 0; } 
+}
+
+.cursorBlink{
+	animation: blinker 1s linear infinite;
+	display: inline-block;
+}
+@keyframes blinker {
+	50% { opacity: 0; }
+}
+code.pageTitle {
+	font-size: 140%;
+}
+
+/* HOMEPAGE */
+.introBG {
+	background-image: url("../images/stock_visualstudiobg.png");
+	background-size: 100%;
+	background-attachment: fixed;
+	
+	right: 0;
+	left: 0;
+	position: absolute;
+	z-index: -1;
+}
+.nameStyle {
+	background-color: #002db3;
+	display: inline;
+	padding: 0.2em;
+}
+.welcome {
+	padding: 1em 0 0 1em;
+	background-color: #1c1c1c;
+	color: white;
+	font-family: "VT323", monospace;
+	width: 100vw;
+	height: 100vh;
+}
+.currentWork {
+	margin: 250px 50px;
+
+	background-color: rgba(40, 40, 40, 0.7);
+	border-radius: 3px;
+
+	padding: 1em;
+	text-align: center;
+	color: white;
+	list-style: none;
+	font-family: "VT323", monospace;
+}
+.introQuotes {
+	margin-top: 50px;
+	color: white;
+	width: 80%;
+	background-color: #1c1c1c;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	
+	text-align: center;
+	font-size: 20px;
+	font-style: italic;
+	
+	border: 3px solid white;
+	box-shadow: 0px 0px 0px 15px rgba(28, 28, 28, 0.7);
+
+}
+/* Footer */
+.footerBlock {
+	background-color: #e5e5e5;
+	
+	position: relative;
+	margin-top: 3em;
+	padding-top: 3px;
+	bottom: -20px;
+}
+/* only using once */
+#footerCenter {
+	text-align: center;
+}
+span.bottomInfo {
+	text-align: center;
+	padding-top: 1em;
+}
+span.bottomInfo a {
+	text-decoration: none;
+	padding: 8px;
+	border-radius: 4px;
+	font-size: 14px;
+	font-weight: bold;
+}
+a.footColor1 {
+	color: #3333ff;
+	border: 1px solid #3333ff;
+}
+a.footColor2 {
+	color: #ff3333;
+	border: 1px solid #ff3333;
+}
+span.bottomInfo a.footColor1:hover {
+	color: white;
+	background-color: #3333ff;
+}
+span.bottomInfo a.footColor2:hover {
+	color: white;
+	background-color: #ff3333;
+}
+p.madeWith {
+	text-align: center;
+	padding-top: 1em;
+	font-size: 12px;
+}
+/* Javascript Typing Animation IDs */
+#char1, #char2, #char3, #char4, #char5, #char6, #char7, #char8, #char9, #char10, #char11, #char12 {
+	display: inline-block;
+}

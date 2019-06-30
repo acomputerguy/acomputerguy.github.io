@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>acg - Blog</title>
+		<link rel="stylesheet" type="text/css" href="../../assets/css/styles.css">
+		<link rel="icon" href="../../assets/images/favicon.png">
+	</head>
+	<body>
+		<h1 class="title"><a href="../index.shtml">acomputerguy</a></h1>
+		
+		<nav>
+			<ul>
+				<li><a href="../contact.shtml"><img src = "../../assets/images/page_all/icon_envelope.png" alt ="envelope icon"> contact</div></a></li>
+				<li><a href="../aboutMe.shtml"><img src = "../../assets/images/page_all/icon_pencil.png" alt ="pencil icon"> about me</div></a></li>
+				<li><a href="../blog.shtml"><img src = "../../assets/images/page_all/icon_folder.png" alt ="folder icon"> blog</div></a></li>
+			</ul>
+		</nav>
+		<div class="blogPostBG webScraperBG">
+			<div class="titleBox">
+			<h2>Web Scraping</h2>
+			<p class="postDate">Winter 2017</p>
+			<ul class="blogTopics">
+				<li>Powershell</li>
+				<li>Invoke-WebRequest</li>
+				<li>Bash</li>
+				<li>Wget</li>
+				<li>Web Scraping</li>
+				<li>HTML</li>
+			</ul>
+			</div>
+		</div>
+		<aside>
+			<ul>
+				<li class="nextPost"><a href="1_firstDay.shtml">Day 1 at Work: Efficiency</a></li>
+				<li class="nextPost"><a href="2_funWithNmap.shtml">Perpetual Scanning</a></li>
+				<li class="nextPost"><a href="3_automateClass.shtml">Automating a Competition</a></li>
+				<li class="currentPost"><a href="4_webScraper.shtml">Web Scraping with Imgur</a></li>
+				<li class="nextPost"><a href="5_socialEng.shtml">Online Scams - HowTo Avoid</a></li>
+			</ul>
+		</aside>
+		<section class="textAllCenter">	
+			<p class="subtopic">Imgur Posts<p>
+			<hr class="subtopicDecor">
+			
+			<p>A popular image browsing site known as Imgur is a place where people post to share dumps of images and/or short animations.
+			But what if I wanted to save these forms of media by the hundreds or thousands?</p>
+			<p>
+			The most common collections of these medias are usually:
+			<ul>
+				<li>A pile of memes</li>
+				<li>Reaction/Story Gifs</li>
+				<li>Wallpaper/Backgrounds</li>
+			</ul>
+			</p>
+			
+			<p>***UPDATE***</p>
+			<p>
+			This was written <i>before</i> I was aware that sites change the HTML structure every now and then to break scripts like these.
+			Web scraping is not a wise approach and it is advised to use the site's APIs if possible. I have made an app that follows best practices.
+			An acceptable example of scraping (or using BeautifulSoup) is with mainframes, when there is no TCP/IP stack, not this use case. I'm keeping
+			this here because it is a learning experience for others too.</p>
+			</p>
+			<p>***End of update***</p>
+			
+			<p>Imgur has a <a href="https://help.imgur.com/hc/en-us/articles/201738607-Image-downloads">feature</a>
+			to assist you in downloading files from a post - by zipping up all the files in an email and sends it to you.
+			But there is a limitation - the "<i>album download feature does not work for very large albums of 1,000 or more.</i>"
+			</p>
+			
+			<figure>
+				<img class="blogPic" src="../../assets/images/4_webscraper/imgur_imageDownloads.png" alt="known issues">
+			</figure>
+						
+			<p>This is when my script (and application) come into play.</p>
+			<font size=1><b>Note:</b> 
+			Script is <font color="green">successful</font> on a post with 12,000+ files.
+			Preview below is a a post with 2,000 images, which took ~5 minutes</font></p>
+			
+			<p class="subtopic">Approach to scraping</p>
+			<hr class="subtopicDecor">
+			
+			<p>At first I thought it was as simple as finding the URLs for the files 
+			listed on web page. I would look for the a tag <code>&lt;a href="//i.imgur.com/ABCDEFGH.jpg" class="zoom"></code>
+			and parse through all instances of these tags, then grab the link in between the quotes, then download the images.
+			<b>Bzzzt!</b> Try again.</p>
+
+			<p>A post with more than 10 files <i>breaks</i> this pattern. The links (<code>src="//i.imgur.com/</code>)
+			for the 11th or higher media did not exist on the same page as the post.</p>
+			
+			<p>Oddly enough, if you inspect the source code of the web page as you scroll down, then you'll notice
+			there are new (about 3-8) images that show up in the <code>data-reactroot</code> div tag.
+			Imgur loads their images by changing the value of <code>&lt;div #id=&quot;</code> constantly to load the next image.</p>
+			
+			<video class="blogVid" autoplay loop="true">
+				<source src="../../assets/media/imagesChanging.mp4" type="video/mp4">
+			</video>
+
+			<p>As I scroll down, the <code>div</code> tags for the newer images appear and older images disappear.
+			PHP can temporarily store some images in the buffer here, just like Google Maps, when you view a new
+			location and the older location no longer exists in the buffer.</p>
+			<p>In Chrome, if you go to the Network tab and select "Img"
+			and scroll down the web page with a filter, ".jpg" applied, you'll see 
+			images being populated as shown below. To store files in a hash to avoid duplicates while
+			imitating scrolling behavior seemed to involve too much work. There has to be a simpler 
+			way with the answers in specifically the HTML pages.</p>
+			
+			<video class="blogVid" autoplay loop="true">
+				<source src="../../assets/media/chromeConsole_imgur.mp4" type="video/mp4">
+			</video>
+			
+			<p>After snooping around some pages, I discovered the answer to the remaining hashes isn't in the
+			gallery page, it's in the <b>album page</b>. By looking at the gallery HTML page where it says "<i>Load X more images</i>"
+			there is a reference to an album.
+			
+			<figure>
+				<img class="blogPic" src="../../assets/images/4_webscraper/imgur_loadxmoreimages.png" alt="load more images">
+			</figure>
+			
+			<p>Inspecting the source code here was another story. I knew all the images I needed were in here, but where?
+			I searched for the hash and lo and behold, metadata comes with it.</p>
+			
+			<figure>
+				<img class="blogPic" src="../../assets/images/4_webscraper/imgur_Images.png" alt="treasure is found">
+			</figure>
+			
+			<p>If I were to snip out information relevant to a single hash and format the metadata properly,
+			it would like so:</p>
+			<pre class="snippetCode"><div class="codeNum"> 1</div> {
+<div class="codeNum"> 2</div>	"hash":"OjkqhyI",
+<div class="codeNum"> 3</div>	"title":"",
+<div class="codeNum"> 4</div>	"description":null,
+<div class="codeNum"> 5</div>	"width":1920,
+<div class="codeNum"> 6</div>	"height":1080,
+<div class="codeNum"> 7</div>	"size":527087,
+<div class="codeNum"> 8</div>	"ext":".jpg",
+<div class="codeNum"> 9</div>	"animated":false,
+<div class="codeNum">10</div>	"prefer_video":false,
+<div class="codeNum">11</div>	"looping":false,
+<div class="codeNum">12</div>	"datetime":"2014-03-08 22:22:06"
+<div class="codeNum">13</div> },</pre>
+						
+			<p class="subtopic">Watching the code do its magic</p>
+			<hr class="subtopicDecor">
+			
+			<video width="800" height="368" autoplay loop="true">
+				<source src="../../assets/media/downloadBackgrounds.mp4" type="video/mp4">
+			</video>
+			
+			<p>Imgur knows what's up - opening up web console gives you a neat little message:</p>
+
+			<figure>
+				<img class="blogPic" src="../../assets/images/4_webscraper/imgur_consoleWeb.png" alt="terms of service">
+			</figure>
+			
+			<p class="subtopic">Is this Allowed?</p>
+			<hr class="subtopicDecor">
+			
+			<p>Way before I started writing the web scraper, I read 
+			into the site's terms of service and verify whether or not this is allowed on their website. Their 
+			<a href="https://imgur.com/tos">ToS</a> allows me to use a web crawler on their site 
+			under USE OF IMGUR CONTENT, where viewers are permitted to "use UGC for personal, 
+			non-commercial purposes."
+			</p>
+			
+			<figure>
+				<img class="blogPic" src="../../assets/images/4_webscraper/imgur_ToS.png" alt="terms of service">
+			</figure>
+			
+			<p>Additionally, rules are laid out in the robots.txt file, which is the equivalen to a post sign saying
+			"Please do not go to these areas" when you enter someone elses' territory.
+			At <a href="imgur.com/robots.txt">imgur.com/robots.txt</a> you can view what they do not want 
+			you to scrape for.</p>
+			<p>The robots exclusion standard tells you what to not process.
+			As shown, /gallery/ and /a/ (albums) were used and they are not mentioned.
+			</p>
+			
+			<figure>
+				<img class="blogPic" src="../../assets/images/4_webscraper/imgur_robotstxt.png" alt="imgur robots txt">
+			</figure>
+			
+			<p>tldr; <b>Yes</b>, this script is allowed as long as you claim zero rights to the user-generated content you download.</p>
+
+			<p>Some sites reject my GET request from my code so you have to change the user agent. 
+			For example, wGET's user agent is literally wGET, not the whole string that comes
+			with a web browser and it's name. Imgur is nice becaue they permit the user agent for
+			<code>wGET</code> and <code>Invoke-WebRequest</code>.
+			</p>
+			
+			</section>	
+		<div class="footerDots"></div>	
+		<footer>
+			<a href ="https://maps.google.com/?daddr=Rochester+Institute+of+Technology,+Rochester,+NY">
+				<img src="../../assets/images/page_all/stock_location.png" alt="Currently at">
+			</a>
+			<a href="mailto:webb.felipe@gmail.com">
+				<img src="../../assets/images/page_all/stock_email.png" alt="Email">
+			</a>
+			<a href="https://www.reddit.com/user/acomputerguy1/">
+				<img src="../../assets/images/page_all/stock_reddit.png" alt="Reddit">
+			</a>
+			<a href="https://www.linkedin.com/in/felipe-webb">
+				<img src="../../assets/images/page_all/stock_linkedin.png" alt="LinkedIn">
+			</a>
+			<a href="https://github.com/acomputerguy">
+				<img src="../../assets/images/page_all/stock_github.png" alt="GitHub">
+			</a>
+		</footer>
+	</body>
+	
+</html>
