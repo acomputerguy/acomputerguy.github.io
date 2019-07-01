@@ -1,5 +1,3 @@
-// http://stackoverflow.com/questions/9335140/how-to-countdown-to-a-date
-//dynamically pull up summer, thanksgiving, christmas, holidays, conventions if added
 function daysLeft() {
 	var end = new Date('012/25/2019 8:00:00 AM');
 
@@ -24,21 +22,3 @@ function daysLeft() {
 	timer = setInterval(showRemaining, 1000);
 						}
 daysLeft();
-			
-//function daysLeft() {
-//	p = document.getElementById("countdown");
-									
-//	var currentTime = new Date();
-//	var currentDay = currentTime.getDate();
-//	var futureTime = new Date("Janurary 23, 2017 8:00:00");
-//	var futureDay = futureTime.getDate();
-//	var daysLeft = 0;
-		
-//	if(currentDay < futureDay)
-//	{ daysLeft = futureDay - currentDay; }
-//	else if (currentDay > futureDay)
-//	{ daysLeft = currentDay - futureDay; }
-	
-//	p.innerHTML = daysLeft;
-//}
-//daysLeft();

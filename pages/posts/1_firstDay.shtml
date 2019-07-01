@@ -16,7 +16,6 @@
 				<li><a href="../blog.shtml"><img src = "../../assets/images/page_all/icon_folder.png" alt ="folder icon"> blog</div></a></li>
 			</ul>
 		</nav>
-		<!--<div class="lineUp">-->
 		<div class="blogPostBG firstDayBG">
 			<div class="titleBox">
 				<h2>Day 1 at Work</h2>
@@ -42,7 +41,6 @@
 			</ul>
 		</aside>
 		
-		<!-- <div class="lineUp"> -->
 		<section class="textAllCenter">
 			<p>On the first day of work, I like to configure my web browser and email to get 
 			more work done efficiently.</p>

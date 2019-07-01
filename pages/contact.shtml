@@ -28,7 +28,6 @@
 				<input id="contact-Email" type="text" name="email" placeholder="Email*"><p></p>
 				<input id="contact-Subject" type="text" name="subject" placeholder="Subject*"><p></p>
 				<input id="contact-Message" type="text" name="message" placeholder="Message"><p></p>
-				<!-- need to use icon_paperPlane.png its not used atm -->
 				<div "myButton"><input type="submit" class="contactButton" name="submit" onclick="getInput()" value="Send"></div>
 			</form>
 		</div>
